@@ -2,7 +2,7 @@ package data;
 
 public class StringData {
     
-    public final String cadena = "amar";
+    public final String cadena = "amaaar";
     
     
     

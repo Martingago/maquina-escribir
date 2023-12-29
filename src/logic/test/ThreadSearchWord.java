@@ -1,17 +1,18 @@
-package logic.generate;
+package logic.test;
 
 import data.StringData;
 import java.util.concurrent.atomic.AtomicInteger;
+import logic.functions.GenerateAndValidateWord;
 
 public class ThreadSearchWord implements Runnable {
 
-    GenerateWord generate = new GenerateWord();
+    GenerateAndValidateWord generate = new GenerateAndValidateWord();
     StringData str = new StringData();
     String texto = str.cadena.toLowerCase();
     //texto separado por espacios
     String[] texto_separado = texto.split(" ");
-    private static  AtomicInteger posicion = new AtomicInteger(0);
-    private static AtomicInteger count = new AtomicInteger(0);
+    private static  AtomicInteger posicion = new AtomicInteger(0); //posicion de palabras en la que nos encontramos
+    private static AtomicInteger count = new AtomicInteger(0); // numero total de palabras generadas
  
     
    
@@ -24,8 +25,7 @@ public class ThreadSearchWord implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
-
+        while (count.get() < 1000000) {
             int currentPos = posicion.get();
              if(currentPos >= texto_separado.length){
              break;
@@ -33,6 +33,7 @@ public class ThreadSearchWord implements Runnable {
             
             String palabra = generate.generateWord(texto_separado[currentPos].length());
             System.out.println(palabra + " | hilo: " + hilo);
+           
             if (texto_separado[currentPos].equals(palabra)) {
                 System.out.println("\n\n\nPalabra encontrada: " + palabra);
                     posicion.incrementAndGet();
