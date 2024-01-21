@@ -1,28 +1,33 @@
 package logic.buffer.productor_consumidor;
 
+import global.GlobalData;
+
 public class BufferProducirYConsumirPalabras {
 
     private String[] buffer; //buffer de palabras
+    private GlobalData datosGlobales; //Se extraen y modifican los datos globales del programa
     private int siguiente; //posicion en la que extraer palabra
     private boolean full; //boolean si el buffer está lleno
     private boolean empty; //boolean si el buffer está vacio
 
     private boolean found; //bolean si se ha encontrado la palabra
-    private long count; //numero long con el contador de palabras generadas para la palabra actual
-
+    private long countActual; //numero long con el contador de palabras generadas para la palabra actual
+    private long countTotal;
     /**
      * Inicializa un objeto "BufferProducirYConsumirPalabras" controlador que
      * gestiona la generacion y consumo de palabras dentro de un buffer
      *
      * @param size tamaño del buffer
      */
-    public BufferProducirYConsumirPalabras(int size) {
+    public BufferProducirYConsumirPalabras(GlobalData datosGlobales, int size) {
+        this.datosGlobales = datosGlobales;
         this.buffer = new String[size];
         this.siguiente = 0;
         this.empty = true;
         this.full = false;
         this.found = false;
-        this.count = 0;
+        this.countActual = 0;
+        this.countTotal = datosGlobales.getNumeroPalabrasTotalesGeneradas();
     }
 
     /**
@@ -41,7 +46,9 @@ public class BufferProducirYConsumirPalabras {
         }
         buffer[siguiente] = word;
         siguiente++;
-        count++;
+        countActual++;
+        datosGlobales.setNumeroPalabraActualGenerada(countActual);
+        
         this.empty = false;
         if (siguiente == this.buffer.length) {
             this.full = true;
@@ -72,6 +79,7 @@ public class BufferProducirYConsumirPalabras {
             this.empty = true;
         }
         notifyAll();
+        
         return palabraConsumida;
     }
 
@@ -84,8 +92,23 @@ public class BufferProducirYConsumirPalabras {
         this.found = found;
     }
 
-    public long getCount() {
-        return this.count;
+    public long getCountActual() {
+        return countActual;
     }
+
+    public void setCountActual(long countActual) {
+        this.countActual = countActual;
+    }
+
+    public long getCountTotal() {
+        return countTotal;
+    }
+
+    public void setCountTotal(long countTotal) {
+        this.countTotal = countTotal;
+    }
+
+    
+  
 
 }

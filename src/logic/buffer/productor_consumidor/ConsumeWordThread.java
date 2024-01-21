@@ -27,7 +27,13 @@ public class ConsumeWordThread implements Runnable {
             if(encontrada){
             //si se encuentra la palabra se pone a true
             buffer.setFound(encontrada);
-                System.out.println("Se encontró la palabra: " + palabraGenerada);
+                System.out.println("Se encontró la palabra: " + palabraGenerada + " han sido necesarios: " +  buffer.getCountActual());
+                //Se le suma el numero de palabras que costó encontrar, al total
+                long total = buffer.getCountTotal();
+                long actual = buffer.getCountActual();
+                buffer.setCountTotal(total + actual);
+                //Se establece el momento de la ultima palabra encontrada
+                
             }
             
         }

@@ -24,9 +24,7 @@ public class ProduceWordThread implements Runnable {
         while(!buffer.isFound()){
         String generatedWord = generate.generateWord(tamañoPalabraBuscar); //genera una palabra de tamaño "x"
         buffer.producirWord(generatedWord);
-            //System.out.println("generado:" +  generatedWord);
         }
-        System.out.println(buffer.getCount());
     }
     
 }
