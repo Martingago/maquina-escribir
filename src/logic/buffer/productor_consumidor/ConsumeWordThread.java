@@ -6,7 +6,6 @@ public class ConsumeWordThread implements Runnable {
 
     private BufferProducirYConsumirPalabras buffer; //buffer sobre el que se consumen las palabras
     private CompararPalabras comprobar; //Clase ComprararPalabras que contiene la función que permite comprobar una palabra con la palabra objetivo
-
     /**
      * Inicia un hilo encargado de consumir palabras del buffer y comprobarlo con la palabra objetivo
      * @param buffer buffer del que se extraen las palabras a analizar
