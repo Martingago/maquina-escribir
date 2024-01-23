@@ -9,15 +9,13 @@ import logic.buffer.productor_consumidor.ProduceWordThread;
 
 public class ControladorBufferBusquedaPalabras {
     
-    private GlobalData datosGlobales;
     private String palabraBuscar; // Palabra objetivo, que se debe buscar.
     private int tamañoPalabraBuscar; //tamaño de la palabra que se debe generar
     private List<Thread> listHilos;
 
     // Constructor del ControladorBufferBusquedaPalabras
     // Recibe una palabra que se deberá buscar
-    public ControladorBufferBusquedaPalabras(GlobalData datosGlobales, String palabraBuscar) {
-        this.datosGlobales = datosGlobales;
+    public ControladorBufferBusquedaPalabras(String palabraBuscar) {
         this.palabraBuscar = palabraBuscar;
         this.tamañoPalabraBuscar = palabraBuscar.length();
     }
@@ -34,7 +32,7 @@ public class ControladorBufferBusquedaPalabras {
      */
     public void iniciarBusquedaProcesoPalabra() {
         // Se crea un buffer que mediante un modelo productor/consumidor genera palabras y las consume.
-        BufferProducirYConsumirPalabras buffer = new BufferProducirYConsumirPalabras(datosGlobales, 10000); // Tamaño del buffer
+        BufferProducirYConsumirPalabras buffer = new BufferProducirYConsumirPalabras(10000); // Tamaño del buffer
 
         // Se declaran los hilos del productor y del consumidor.
         ProduceWordThread productor = new ProduceWordThread(buffer, tamañoPalabraBuscar); // Produce palabras de un tamaño específico.

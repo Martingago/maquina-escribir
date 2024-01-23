@@ -11,13 +11,13 @@ public class Main_Maquina_escribir {
          * del programa => Total de palabras generadas, numero palabras
          * actuales, fecha inicio, fecha ultima palabra encontrada [...]
          */
-        GlobalData datosGlobales = new GlobalData();
+        //GlobalData datosGlobales = new GlobalData();
 
-        System.out.println("Se lanza el programa");
-        GestionarCadenaPalabras gestion = new GestionarCadenaPalabras(datosGlobales);
-
-        gestion.manejarCadenaPalabras();
-        System.out.println(datosGlobales.toString());
-        System.out.println("Fin del programa");
+//        System.out.println("Se lanza el programa");
+//        GestionarCadenaPalabras gestion = new GestionarCadenaPalabras(datosGlobales);
+//
+//        gestion.manejarCadenaPalabras();
+//        System.out.println(datosGlobales.toString());
+//        System.out.println("Fin del programa");
     }
 }

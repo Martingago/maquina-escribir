@@ -1,26 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gui.main;
 
 import global.GlobalData;
 import logic.main.GestionarCadenaPalabras;
 
-/**
- *
- * @author Angeles
- */
 public class MainInterface extends javax.swing.JFrame {
 
     /**
      * Creates new form MainInterface
      */
-    GlobalData datosGlobales;
-    
+
     public MainInterface() {
         initComponents();
-        datosGlobales  = new GlobalData();
+        GlobalData data = GlobalData.getInstance();
     }
 
     /**
@@ -95,11 +86,11 @@ public class MainInterface extends javax.swing.JFrame {
     private void start_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_btnActionPerformed
         // TODO add your handling code here:
         System.out.println("Se inicia el lanzamiento del programa");
-                GestionarCadenaPalabras gestion = new GestionarCadenaPalabras(datosGlobales);
-
-        gestion.manejarCadenaPalabras();
-        System.out.println(datosGlobales.toString());
-        System.out.println("Fin del programa");
+        Thread hilo = new Thread(() -> {
+            GestionarCadenaPalabras gestion = new GestionarCadenaPalabras();
+            gestion.manejarCadenaPalabras();
+        });
+        hilo.start();
     }//GEN-LAST:event_start_btnActionPerformed
 
     /**
