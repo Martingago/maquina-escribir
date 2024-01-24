@@ -25,11 +25,17 @@ public class MainInterface extends javax.swing.JFrame {
         panel_principal = new javax.swing.JPanel();
         panel_registro = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        texto_salida = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         start_btn = new javax.swing.JButton();
         time_ejecution = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -39,10 +45,10 @@ public class MainInterface extends javax.swing.JFrame {
 
         panel_registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setFocusable(false);
-        jScrollPane1.setViewportView(jTextArea1);
+        texto_salida.setColumns(20);
+        texto_salida.setRows(5);
+        texto_salida.setFocusable(false);
+        jScrollPane1.setViewportView(texto_salida);
 
         panel_registro.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 360, 300));
 
@@ -50,7 +56,7 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel1.setText("Registro palabras encontradas:");
         panel_registro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 360, 30));
 
-        panel_principal.add(panel_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 400));
+        panel_principal.add(panel_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 400, 400));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -61,13 +67,45 @@ public class MainInterface extends javax.swing.JFrame {
         time_ejecution.setFocusable(false);
         jPanel1.add(time_ejecution, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 260, -1));
 
-        panel_principal.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 300, 400));
+        panel_principal.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 300, 400));
+
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Log datos:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 140, 30));
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 140, 250));
+
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane3.setFont(new java.awt.Font("Segoe UI", 0, 5)); // NOI18N
+
+        jTextArea2.setColumns(5);
+        jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jTextArea2.setRows(3);
+        jTextArea2.setText("(El registro de datos se\n ha limitado a 4 elementos \npor segundo)");
+        jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setFocusable(false);
+        jScrollPane3.setViewportView(jTextArea2);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 140, 50));
+
+        panel_principal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,12 +152,18 @@ public class MainInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JPanel panel_principal;
     private javax.swing.JPanel panel_registro;
     public javax.swing.JButton start_btn;
+    public javax.swing.JTextArea texto_salida;
     private javax.swing.JTextField time_ejecution;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,6 +11,7 @@ public class ControladorBufferBusquedaPalabras {
     private String palabraBuscar; // Palabra objetivo, que se debe buscar.
     private int tamañoPalabraBuscar; //tamaño de la palabra que se debe generar
     private List<Thread> listHilos;
+   
 
     // Constructor del ControladorBufferBusquedaPalabras
     // Recibe una palabra que se deberá buscar

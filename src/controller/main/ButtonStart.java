@@ -9,6 +9,7 @@ public class ButtonStart implements ActionListener {
 
     private DirectorAlgoritmoBusquedaPalabras model;
     private MainInterface vista;
+    
 
     public ButtonStart(DirectorAlgoritmoBusquedaPalabras model, MainInterface vista) {
         this.model = model;
