@@ -12,6 +12,7 @@ public class BufferProducirYConsumirPalabras {
 
     private boolean found; //bolean si se ha encontrado la palabra
     private long countActual; //numero long con el contador de palabras generadas para la palabra actual
+
     /**
      * Inicializa un objeto "BufferProducirYConsumirPalabras" controlador que
      * gestiona la generacion y consumo de palabras dentro de un buffer
@@ -19,6 +20,7 @@ public class BufferProducirYConsumirPalabras {
      * @param size tamaño del buffer
      */
     public BufferProducirYConsumirPalabras(int size) {
+
         this.datosGlobales = GlobalData.getInstance();
         this.buffer = new String[size];
         this.siguiente = 0;
@@ -27,6 +29,7 @@ public class BufferProducirYConsumirPalabras {
         this.found = false;
         //variable local que almacena el contador actual de palabras y una vez encontrada se pasará a GlobalData
         this.countActual = 0;
+
     }
 
     /**
@@ -70,13 +73,13 @@ public class BufferProducirYConsumirPalabras {
         siguiente--;
         countActual++;
         String palabraConsumida = this.buffer[siguiente];
-        
+
         this.full = false;
         if (siguiente == 0) {
             this.empty = true;
         }
         notifyAll();
-        
+
         return palabraConsumida;
     }
 
@@ -97,5 +100,8 @@ public class BufferProducirYConsumirPalabras {
         this.countActual = countActual;
     }
 
+    public String[] getBuffer() {
+        return buffer;
+    }
 
 }
