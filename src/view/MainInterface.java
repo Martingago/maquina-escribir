@@ -29,7 +29,10 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         start_btn = new javax.swing.JButton();
-        time_ejecution = new javax.swing.JTextField();
+        total_words_generated = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        total_time_ejecution = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -65,8 +68,29 @@ public class MainInterface extends javax.swing.JFrame {
         start_btn.setText("Iniciar");
         jPanel1.add(start_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 120, 30));
 
-        time_ejecution.setFocusable(false);
-        jPanel1.add(time_ejecution, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 260, 30));
+        total_words_generated.setFocusable(false);
+        total_words_generated.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                total_words_generatedActionPerformed(evt);
+            }
+        });
+        jPanel1.add(total_words_generated, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 250, 30));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Tiempo Activo:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 250, 30));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Total palabras generadas:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 250, 30));
+
+        total_time_ejecution.setFocusable(false);
+        total_time_ejecution.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                total_time_ejecutionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(total_time_ejecution, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 250, 30));
 
         panel_principal.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 300, 400));
 
@@ -119,6 +143,14 @@ public class MainInterface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void total_words_generatedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_words_generatedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_total_words_generatedActionPerformed
+
+    private void total_time_ejecutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_time_ejecutionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_total_time_ejecutionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -157,6 +189,8 @@ public class MainInterface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -168,6 +202,7 @@ public class MainInterface extends javax.swing.JFrame {
     public javax.swing.JButton start_btn;
     public javax.swing.JTextArea texto_palabras;
     public javax.swing.JTextArea texto_salida;
-    private javax.swing.JTextField time_ejecution;
+    public javax.swing.JTextField total_time_ejecution;
+    public javax.swing.JTextField total_words_generated;
     // End of variables declaration//GEN-END:variables
 }

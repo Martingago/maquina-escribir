@@ -1,6 +1,7 @@
 package model.global;
 
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class GlobalData{
 
@@ -9,14 +10,16 @@ public class GlobalData{
     //Se obtienen a partir de un documento CSV, en el cual se harán copias de seguridad.
     //Si el documento no existe, se tomarán los valores por defecto (inicio).
 
-    private long numeroPalabrasTotalesGeneradas; //numero que representa el TOTAL de palabras que se han generado durante la ejecución de código.
+    private AtomicLong numeroPalabrasTotalesGeneradas; //numero que representa el TOTAL de palabras que se han generado durante la ejecución de código.
+    private AtomicLong secsTotalActive; //segundos totales que lleva funcionando el programa.
     private int posicionActual; //posicion de la palabra en la que nos encontramos.
     private long numeroPalabraActualGenerada; //numero de palabras generadas en la palabra actual
     private Date ultimaPalabraEncontrada; //fecha de la ultima palabra encontrada
     private Date fechaInicio; //fecha en la que se inició el programa por primera vez
 
     private GlobalData() {
-        this.numeroPalabrasTotalesGeneradas = 0;
+        this.numeroPalabrasTotalesGeneradas = new AtomicLong(0);
+        this.secsTotalActive = new AtomicLong(0);
         this.posicionActual = 0;
         this.numeroPalabraActualGenerada = 0;
         this.ultimaPalabraEncontrada = new Date(); //se establece fecha actual
@@ -32,15 +35,22 @@ public class GlobalData{
     }
     
     //getters y setters
-
-    public long getNumeroPalabrasTotalesGeneradas() {
-        return numeroPalabrasTotalesGeneradas;
+    public long incrementPalabrasTotalesGeneradas(){
+        return numeroPalabrasTotalesGeneradas.incrementAndGet();
     }
-
-    public void setNumeroPalabrasTotalesGeneradas(long numeroPalabrasTotalesGeneradas) {
-        this.numeroPalabrasTotalesGeneradas = numeroPalabrasTotalesGeneradas;
+    
+    public long getPalabrasTotalesGeneradas(){
+        return numeroPalabrasTotalesGeneradas.get();
     }
-
+    
+      public long incrementSecsTotalActive(){
+        return secsTotalActive.incrementAndGet();
+    }
+    
+    public long getSecsTotalActive(){
+        return secsTotalActive.get();
+    }
+    
     public int getPosicionActual() {
         return posicionActual;
     }

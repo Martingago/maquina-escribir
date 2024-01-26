@@ -48,6 +48,7 @@ public class BufferProducirYConsumirPalabras {
         }
         buffer[siguiente] = word;
         siguiente++;
+        datosGlobales.incrementPalabrasTotalesGeneradas();
         this.empty = false;
         if (siguiente == this.buffer.length) {
             this.full = true;

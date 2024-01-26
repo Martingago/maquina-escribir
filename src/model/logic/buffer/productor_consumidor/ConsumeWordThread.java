@@ -54,7 +54,7 @@ public class ConsumeWordThread implements Runnable {
                 String salida = "Generada: \"" + palabraGenerada + "\" Fueron necesarios: " + datos.getNumeroPalabraActualGenerada() + " intentos\n";
                 notifyObservers(salida);
 
-                datos.setNumeroPalabrasTotalesGeneradas(datos.getNumeroPalabrasTotalesGeneradas() + datos.getNumeroPalabraActualGenerada());
+                //datos.setNumeroPalabrasTotalesGeneradas(datos.getNumeroPalabrasTotalesGeneradas() + datos.getNumeroPalabraActualGenerada());
                 //Se establece el momento de la ultima palabra encontrada
                 datos.setUltimaPalabraEncontrada(new Date());
                 System.out.println(datos.toString());

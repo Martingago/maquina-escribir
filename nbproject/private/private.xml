@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/model/logic/buffer/productor_consumidor/BufferProducirYConsumirPalabras.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/TextoSalidaDatos.java</file>
             <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/main/Main_Maquina_escribir.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/model/logic/buffer/productor_consumidor/MostrarPalabrasAleatoriasThread.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/model/logic/buffer/ControladorBufferBusquedaPalabras.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/TotalPalabrasGeneradas.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/MainController.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/model/global/ObserverGlobalData.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/model/global/GlobalData.java</file>
         </group>
     </open-files>
 </project-private>
