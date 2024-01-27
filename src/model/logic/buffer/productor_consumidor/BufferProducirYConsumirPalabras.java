@@ -105,4 +105,10 @@ public class BufferProducirYConsumirPalabras {
         return buffer;
     }
 
+    public GlobalData getDatosGlobales() {
+        return datosGlobales;
+    }
+    
+    
+
 }

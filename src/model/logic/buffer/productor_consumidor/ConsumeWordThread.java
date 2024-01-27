@@ -24,6 +24,7 @@ public class ConsumeWordThread implements Runnable {
         this.buffer = buffer;
         this.comprobar = new CompararPalabras(palabraBase);
         
+        
     }
 
     public void addObserver(Observer observer) {
@@ -40,7 +41,7 @@ public class ConsumeWordThread implements Runnable {
     public void run() {
         GlobalData datos = GlobalData.getInstance();
         addObserver(TextoSalidaDatos.getInstance(null)); //referencia de la instancia de textoSalida
-        while (!buffer.isFound()) {
+        while (!buffer.isFound()&& buffer.getDatosGlobales().isWorking()) {
             String palabraGenerada = buffer.consumirWord(); //palabra generada que se va a consumir
             boolean encontrada = comprobar.validarPalabra(palabraGenerada); //valida que la palabra sea igual a la palabra base
             if (encontrada) {
@@ -54,10 +55,13 @@ public class ConsumeWordThread implements Runnable {
                 String salida = "Generada: \"" + palabraGenerada + "\" Fueron necesarios: " + datos.getNumeroPalabraActualGenerada() + " intentos\n";
                 notifyObservers(salida);
 
-                //datos.setNumeroPalabrasTotalesGeneradas(datos.getNumeroPalabrasTotalesGeneradas() + datos.getNumeroPalabraActualGenerada());
                 //Se establece el momento de la ultima palabra encontrada
                 datos.setUltimaPalabraEncontrada(new Date());
                 System.out.println(datos.toString());
+                
+                //se aumenta la posicion
+                int posActual = buffer.getDatosGlobales().getPosicionActual();
+                buffer.getDatosGlobales().setPosicionActual(posActual++);
             }
         }
 

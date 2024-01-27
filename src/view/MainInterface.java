@@ -33,6 +33,7 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         total_time_ejecution = new javax.swing.JTextField();
+        pause_btn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -66,7 +67,7 @@ public class MainInterface extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         start_btn.setText("Iniciar");
-        jPanel1.add(start_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 120, 30));
+        jPanel1.add(start_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 120, 30));
 
         total_words_generated.setFocusable(false);
         total_words_generated.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +92,9 @@ public class MainInterface extends javax.swing.JFrame {
             }
         });
         jPanel1.add(total_time_ejecution, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 250, 30));
+
+        pause_btn.setText("Pausar");
+        jPanel1.add(pause_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 120, 30));
 
         panel_principal.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 300, 400));
 
@@ -199,6 +203,7 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JPanel panel_principal;
     private javax.swing.JPanel panel_registro;
+    public javax.swing.JButton pause_btn;
     public javax.swing.JButton start_btn;
     public javax.swing.JTextArea texto_palabras;
     public javax.swing.JTextArea texto_salida;

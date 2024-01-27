@@ -22,13 +22,13 @@ public class ProduceWordThread implements Runnable {
     
     @Override
     public void run() {
-        
+        System.out.println("Lanzado hilo productor");
         //genera de forma constante palabras aleatorias mientras no se haya encontrado la palabra específica
-        while (!buffer.isFound()) {
+        while (!buffer.isFound() && buffer.getDatosGlobales().isWorking()) {
             String generatedWord = generate.generateWord(tamañoPalabraBuscar); //genera una palabra de tamaño "x"
             buffer.producirWord(generatedWord);
-            
         }
+        System.out.println("Hilo productor terminado");
     }
     
 }

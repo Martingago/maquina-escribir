@@ -1,10 +1,9 @@
 package controller;
 
+import controller.main.ButtonPause;
 import controller.main.ButtonStart;
 import controller.main.TextoSalidaDatos;
 import controller.main.TextoSalidaPalabras;
-import controller.main.TotalPalabrasGeneradas;
-import controller.main.TotalTimeEjecution;
 import model.main.DirectorAlgoritmoBusquedaPalabras;
 import view.MainInterface;
 
@@ -16,6 +15,7 @@ public class MainController{
     private MainInterface vista;
     //botones
     private ButtonStart startButton; //botón que inicia el programa
+    private ButtonPause pauseButton;
     
     //paneles de texto
     private TextoSalidaDatos outputText; //Panel de texto que muestra la salida de datos
@@ -26,6 +26,8 @@ public class MainController{
         this.model = model;
         this.vista = vista;
         this.startButton = new ButtonStart(model,vista);
+        this.pauseButton = new ButtonPause(model,vista);
+        
         this.outputText= TextoSalidaDatos.getInstance(vista); //Se inicializa una instancia singleton de la salida de texto
         this.outputTextPalabras = TextoSalidaPalabras.getInstance(vista);
 
