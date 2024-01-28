@@ -25,8 +25,8 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
         data = GlobalData.getInstance();
     }
 
-    public void orquestarBusquedaPalabraObjetivo() {
-
+    public GlobalData getData() {
+        return data;
     }
 
     /**
@@ -36,11 +36,10 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
      */
     @Override
     public void run() {
-        System.out.println("Creado hilo principal");
         while (data.getPosicionActual() != posicionFinal && data.isWorking()) {
+            System.out.println("Programa principal lanzado");
             new ControladorBufferBusquedaPalabras(arrayPalabras[data.getPosicionActual()].toLowerCase()).iniciarBusquedaProcesoPalabra();
         }
-        System.out.println("hilo finaliza");
     }
 
 }

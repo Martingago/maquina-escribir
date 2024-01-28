@@ -34,6 +34,7 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         total_time_ejecution = new javax.swing.JTextField();
         pause_btn = new javax.swing.JButton();
+        force_copy_data_btn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -67,7 +68,7 @@ public class MainInterface extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         start_btn.setText("Iniciar");
-        jPanel1.add(start_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 120, 30));
+        jPanel1.add(start_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 120, 30));
 
         total_words_generated.setFocusable(false);
         total_words_generated.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +95,11 @@ public class MainInterface extends javax.swing.JFrame {
         jPanel1.add(total_time_ejecution, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 250, 30));
 
         pause_btn.setText("Pausar");
-        jPanel1.add(pause_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 120, 30));
+        pause_btn.setEnabled(false);
+        jPanel1.add(pause_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 120, 30));
+
+        force_copy_data_btn.setText("Forzar copia seguridad");
+        jPanel1.add(force_copy_data_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 250, 30));
 
         panel_principal.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 300, 400));
 
@@ -191,6 +196,7 @@ public class MainInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton force_copy_data_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
