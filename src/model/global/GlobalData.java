@@ -1,23 +1,28 @@
 package model.global;
 
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicLong;
 
-public class GlobalData{
+public class GlobalData {
 
     private static GlobalData instance = null;
     //Inicialización de datos globales que darán funcionalidad a toda la aplicación:
     //Se obtienen a partir de un documento CSV, en el cual se harán copias de seguridad.
     //Si el documento no existe, se tomarán los valores por defecto (inicio).
 
-    private long numeroPalabrasTotalesGeneradas; //numero que representa el TOTAL de palabras que se han generado durante la ejecución de código.
+    private AtomicLong numeroPalabrasTotalesGeneradas; //numero que representa el TOTAL de palabras que se han generado durante la ejecución de código.
+    private AtomicLong secsTotalActive; //segundos totales que lleva funcionando el programa.
     private int posicionActual; //posicion de la palabra en la que nos encontramos.
+    private boolean working;
     private long numeroPalabraActualGenerada; //numero de palabras generadas en la palabra actual
     private Date ultimaPalabraEncontrada; //fecha de la ultima palabra encontrada
     private Date fechaInicio; //fecha en la que se inició el programa por primera vez
 
     private GlobalData() {
-        this.numeroPalabrasTotalesGeneradas = 0;
+        this.numeroPalabrasTotalesGeneradas = new AtomicLong(0);
+        this.secsTotalActive = new AtomicLong(0);
         this.posicionActual = 0;
+        this.working = false;
         this.numeroPalabraActualGenerada = 0;
         this.ultimaPalabraEncontrada = new Date(); //se establece fecha actual
         this.fechaInicio = new Date(); //se establece fecha actual
@@ -30,15 +35,30 @@ public class GlobalData{
         }
         return instance;
     }
-    
-    //getters y setters
 
-    public long getNumeroPalabrasTotalesGeneradas() {
-        return numeroPalabrasTotalesGeneradas;
+    //getters y setters
+    public boolean isWorking() {
+        return working;
     }
 
-    public void setNumeroPalabrasTotalesGeneradas(long numeroPalabrasTotalesGeneradas) {
-        this.numeroPalabrasTotalesGeneradas = numeroPalabrasTotalesGeneradas;
+    public void setWorking(boolean working) {
+        this.working = working;
+    }
+
+    public long incrementPalabrasTotalesGeneradas() {
+        return numeroPalabrasTotalesGeneradas.incrementAndGet();
+    }
+
+    public long getPalabrasTotalesGeneradas() {
+        return numeroPalabrasTotalesGeneradas.get();
+    }
+
+    public long incrementSecsTotalActive() {
+        return secsTotalActive.incrementAndGet();
+    }
+
+    public long getSecsTotalActive() {
+        return secsTotalActive.get();
     }
 
     public int getPosicionActual() {
@@ -85,11 +105,5 @@ public class GlobalData{
         sb.append('}');
         return sb.toString();
     }
-    
-    
-    
-    
-    
-    
-    
+
 }
