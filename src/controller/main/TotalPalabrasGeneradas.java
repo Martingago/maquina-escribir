@@ -18,6 +18,7 @@ public class TotalPalabrasGeneradas implements SalidaPalabrasTotalesObserver {
     public TotalPalabrasGeneradas(MainInterface vista) {
         this.salida_total_palabras = vista.total_words_generated;
         datosGlobales = GlobalData.getInstance();
+        this.salida_total_palabras.setText( String.valueOf(datosGlobales.getPalabrasTotalesGeneradas()));
     }
 
     public static TotalPalabrasGeneradas getInstance(MainInterface vista) {

@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/main/Main_Maquina_escribir.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/view/MainInterface.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/ButtonPause.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/model/global/GlobalData.java</file>
+            <file>file:/C:/Users/Angeles/Desktop/DAM/WEBS/WEB/maquina-escribir/src/model/logic/buffer/productor_consumidor/ConsumeWordThread.java</file>
+            <file>file:/C:/Users/Angeles/Desktop/DAM/WEBS/WEB/maquina-escribir/src/model/global/GlobalData.java</file>
+            <file>file:/C:/Users/Angeles/Desktop/DAM/WEBS/WEB/maquina-escribir/src/controller/main/ButtonCopySeguridad.java</file>
+            <file>file:/C:/Users/Angeles/Desktop/DAM/WEBS/WEB/maquina-escribir/src/main/Main_Maquina_escribir.java</file>
+            <file>file:/C:/Users/Angeles/Desktop/DAM/WEBS/WEB/maquina-escribir/src/model/logic/buffer/ControladorBufferBusquedaPalabras.java</file>
+            <file>file:/C:/Users/Angeles/Desktop/DAM/WEBS/WEB/maquina-escribir/src/model/main/DirectorAlgoritmoBusquedaPalabras.java</file>
         </group>
     </open-files>
 </project-private>

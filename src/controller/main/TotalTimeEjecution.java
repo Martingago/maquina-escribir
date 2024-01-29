@@ -14,7 +14,7 @@ public class TotalTimeEjecution implements TotalTimeEjecutionObserver {
     private TotalTimeEjecution(MainInterface vista) {
         this.text_panel = vista.total_time_ejecution;
         this.globalData = GlobalData.getInstance();
-
+        this.text_panel.setText(formatTimeEjecution(globalData.getSecsTotalActive()));
     }
 
     public static TotalTimeEjecution getInstance(MainInterface vista) {

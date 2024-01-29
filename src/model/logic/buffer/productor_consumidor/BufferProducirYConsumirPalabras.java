@@ -1,17 +1,17 @@
 package model.logic.buffer.productor_consumidor;
 
+import java.util.concurrent.atomic.AtomicLong;
 import model.global.GlobalData;
 
 public class BufferProducirYConsumirPalabras {
-
-    private String[] buffer; //buffer de palabras
     private GlobalData datosGlobales; //Se obtiene la referencia de GlobalData única
+    
+    private String[] buffer; //buffer de palabras
     private int siguiente; //posicion en la que extraer palabra
     private boolean full; //boolean si el buffer está lleno
     private boolean empty; //boolean si el buffer está vacio
 
     private boolean found; //bolean si se ha encontrado la palabra
-    private long countActual; //numero long con el contador de palabras generadas para la palabra actual
 
     /**
      * Inicializa un objeto "BufferProducirYConsumirPalabras" controlador que
@@ -28,7 +28,6 @@ public class BufferProducirYConsumirPalabras {
         this.full = false;
         this.found = false;
         //variable local que almacena el contador actual de palabras y una vez encontrada se pasará a GlobalData
-        this.countActual = 0;
 
     }
 
@@ -72,7 +71,7 @@ public class BufferProducirYConsumirPalabras {
             }
         }
         siguiente--;
-        countActual++;
+        datosGlobales.incrementPalabrasActualesGeneradas();
         String palabraConsumida = this.buffer[siguiente];
 
         this.full = false;
@@ -91,14 +90,6 @@ public class BufferProducirYConsumirPalabras {
 
     public void setFound(boolean found) {
         this.found = found;
-    }
-
-    public long getCountActual() {
-        return countActual;
-    }
-
-    public void setCountActual(long countActual) {
-        this.countActual = countActual;
     }
 
     public String[] getBuffer() {

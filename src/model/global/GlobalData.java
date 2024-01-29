@@ -1,9 +1,11 @@
 package model.global;
 
+import java.io.ObjectStreamException;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class GlobalData {
+public class GlobalData implements Serializable {
 
     private static GlobalData instance = null;
     //Inicialización de datos globales que darán funcionalidad a toda la aplicación:
@@ -11,10 +13,12 @@ public class GlobalData {
     //Si el documento no existe, se tomarán los valores por defecto (inicio).
 
     private AtomicLong numeroPalabrasTotalesGeneradas; //numero que representa el TOTAL de palabras que se han generado durante la ejecución de código.
+    private AtomicLong numeroPalabraActualGenerada; //numero de palabras generadas en la palabra actual
     private AtomicLong secsTotalActive; //segundos totales que lleva funcionando el programa.
+
     private int posicionActual; //posicion de la palabra en la que nos encontramos.
     private boolean working;
-    private long numeroPalabraActualGenerada; //numero de palabras generadas en la palabra actual
+
     private Date ultimaPalabraEncontrada; //fecha de la ultima palabra encontrada
     private Date fechaInicio; //fecha en la que se inició el programa por primera vez
 
@@ -23,7 +27,7 @@ public class GlobalData {
         this.secsTotalActive = new AtomicLong(0);
         this.posicionActual = 0;
         this.working = false;
-        this.numeroPalabraActualGenerada = 0;
+        this.numeroPalabraActualGenerada = new AtomicLong(0);
         this.ultimaPalabraEncontrada = new Date(); //se establece fecha actual
         this.fechaInicio = new Date(); //se establece fecha actual
     }
@@ -69,11 +73,15 @@ public class GlobalData {
         this.posicionActual = posicionActual;
     }
 
-    public long getNumeroPalabraActualGenerada() {
+    public long incrementPalabrasActualesGeneradas() {
+        return numeroPalabraActualGenerada.incrementAndGet();
+    }
+
+    public AtomicLong getNumeroPalabraActualGenerada() {
         return numeroPalabraActualGenerada;
     }
 
-    public void setNumeroPalabraActualGenerada(long numeroPalabraActualGenerada) {
+    public void setNumeroPalabraActualGenerada(AtomicLong numeroPalabraActualGenerada) {
         this.numeroPalabraActualGenerada = numeroPalabraActualGenerada;
     }
 
@@ -104,6 +112,13 @@ public class GlobalData {
         sb.append(", fechaInicio=").append(fechaInicio);
         sb.append('}');
         return sb.toString();
+    }
+
+    // Este método se llama automáticamente durante la deserialización
+    private Object readResolve() throws ObjectStreamException {
+        // Aquí reemplazamos la instancia original con la instancia deserializada
+        instance = this;
+        return this;
     }
 
 }
