@@ -2,6 +2,7 @@ package model.main;
 
 import data.StringData;
 import model.global.GlobalData;
+import model.global.ListaPalabrasEncontradas;
 import model.logic.buffer.ControladorBufferBusquedaPalabras;
 
 public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
@@ -16,6 +17,7 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
     private String[] arrayPalabras;
     private int posicionFinal;
     GlobalData data;
+    ListaPalabrasEncontradas lista;
 
     //Constructor que se genera automáticamente si no existe ningun fichero de guardado de datos previo
     public DirectorAlgoritmoBusquedaPalabras() {
@@ -23,6 +25,7 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
         this.arrayPalabras = textoGenerar.getArrayCadena();
         this.posicionFinal = textoGenerar.getTotalPalabrasBuscar();
         data = GlobalData.getInstance();
+        //lista = ListaPalabrasEncontradas.getInstance();
     }
 
     public GlobalData getData() {
@@ -37,6 +40,7 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
     @Override
     public void run() {
         while (data.getPosicionActual() != posicionFinal && data.isWorking()) {
+            System.out.println(data.getPosicionActual());
             new ControladorBufferBusquedaPalabras(arrayPalabras[data.getPosicionActual()].toLowerCase()).iniciarBusquedaProcesoPalabra();
         }
     }

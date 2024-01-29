@@ -2,18 +2,18 @@ package model.logic.buffer.productor_consumidor;
 
 import controller.main.TextoSalidaDatos;
 import controller.observer.Observer;
-import data.HandleFicheroCopia;
 import java.util.*;
+import model.global.DesencriptedWord;
 import model.global.GlobalData;
+import model.global.ListaPalabrasEncontradas;
 import model.logic.buffer.productor_consumidor.functions.CompararPalabras;
 
 public class ConsumeWordThread implements Runnable {
 
-    private HandleFicheroCopia handleCopia;
     private List<Observer> observers = new ArrayList<>(); //observadores para actualizar elementos de la interfaz
     private BufferProducirYConsumirPalabras buffer; //buffer sobre el que se consumen las palabras
     private CompararPalabras comprobar; //Clase ComprararPalabras que contiene la función que permite comprobar una palabra con la palabra objetivo
-
+    private DesencriptedWord palabraDesencriptada;
 
     /**
      * Inicia un hilo encargado de consumir palabras del buffer y comprobarlo
@@ -25,7 +25,7 @@ public class ConsumeWordThread implements Runnable {
     public ConsumeWordThread(BufferProducirYConsumirPalabras buffer, String palabraBase) {
         this.buffer = buffer;
         this.comprobar = new CompararPalabras(palabraBase);
-        this.handleCopia = new HandleFicheroCopia();
+        this.palabraDesencriptada = null;
         
     }
 
@@ -42,6 +42,8 @@ public class ConsumeWordThread implements Runnable {
     @Override
     public void run() {
         GlobalData globalData = GlobalData.getInstance();
+        ListaPalabrasEncontradas listaPalabras = ListaPalabrasEncontradas.getInstance();
+        
         addObserver(TextoSalidaDatos.getInstance(null)); //referencia de la instancia de textoSalida
         while (!buffer.isFound()&& buffer.getDatosGlobales().isWorking()) {
             String palabraGenerada = buffer.consumirWord(); //palabra generada que se va a consumir
@@ -49,19 +51,27 @@ public class ConsumeWordThread implements Runnable {
             if (encontrada) {
                 //si se encuentra la palabra se pone a true
                 buffer.setFound(encontrada);
-
+                
+                 //Se establece el momento de la ultima palabra encontrada
+                globalData.setUltimaPalabraEncontrada(new Date());
+                
+                //Se crea un objeto de DesencriptedWord
+                palabraDesencriptada = new DesencriptedWord(globalData.getPosicionActual(),
+                        palabraGenerada, globalData.getNumeroPalabraActualGenerada().get(),globalData.getUltimaPalabraEncontrada());
+                
+                //Se añade la palabra encontrada a la lista
+                listaPalabras.addPalabraDesencriptada(palabraDesencriptada);
+                
                 //Se envian los datos a través de un observer:
                 String salida = "Generada: \"" + palabraGenerada + "\" Fueron necesarios: " + globalData.getNumeroPalabraActualGenerada() + " intentos\n";
                 notifyObservers(salida);
 
-                //Se establece el momento de la ultima palabra encontrada
-                globalData.setUltimaPalabraEncontrada(new Date());
-                
                 //se aumenta la posicion
-                int next = globalData.getPosicionActual() + 1;
-                globalData.setPosicionActual(next);
+                globalData.setPosicionActual(globalData.getPosicionActual() + 1);
                 
-                handleCopia.updateCopiaSeguridad();
+                //Se hace un guardado automático cada vez que se encuentra una palabra
+                GlobalData.guardarDatos(globalData);
+                ListaPalabrasEncontradas.guardarDatos(listaPalabras);
             }
         }
 
