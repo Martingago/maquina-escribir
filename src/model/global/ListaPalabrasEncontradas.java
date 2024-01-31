@@ -6,9 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ListaPalabrasEncontradas {
+public class ListaPalabrasEncontradas implements Serializable {
 
     private static ListaPalabrasEncontradas  instance = null;
     private ArrayList<DesencriptedWord> listPalabrasDesencriptadas;
@@ -22,6 +23,7 @@ public class ListaPalabrasEncontradas {
     public static ListaPalabrasEncontradas getInstance(){
     if(instance == null){
         instance = loadData();
+        
     }
         return instance;
     }
@@ -37,6 +39,7 @@ public class ListaPalabrasEncontradas {
         File file = new File("list_palabras_datos.ser");
         if (file.exists()) {
             //Si el fichero existe se cargan los datos desde el fichero
+            System.out.println("Se ha encontrado un fichero de listado de palabras");
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
                 return (ListaPalabrasEncontradas) ois.readObject();
             } catch (IOException | ClassNotFoundException e) {
@@ -57,7 +60,7 @@ public class ListaPalabrasEncontradas {
      * @param lista
      */
     public static void guardarDatos(ListaPalabrasEncontradas lista) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("copia_datos.ser"))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("list_palabras_datos.ser"))) {
             oos.writeObject(lista);
         } catch (IOException e) {
             throw new RuntimeException("Error al guardar los datos", e);
@@ -77,5 +80,12 @@ public class ListaPalabrasEncontradas {
     public ArrayList<DesencriptedWord> getListPalabrasDesencriptadas() {
         return listPalabrasDesencriptadas;
     }
+
+    @Override
+    public String toString() {
+        return "ListaPalabrasEncontradas{" + "listPalabrasDesencriptadas=" + listPalabrasDesencriptadas + '}';
+    }
+    
+    
 
 }

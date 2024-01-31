@@ -11,7 +11,7 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
      * Clase principal del programa. Esta clase actua como directora para poder
      * ejecutar con éxito el algoritmo de generacion y comparación de palabras
      */
-    private final String cadena = "test lets gou meu deus vamos a ver si esto esta bastante tiempo buscando lol"; //Cadena de texto que se ejecutará
+    private final String cadena = "test lets gou meu deus esto es la monda si a ver cuanto tiempo tarda en encontrar todo"; //Cadena de texto que se ejecutará
 
     StringData textoGenerar; //clase que ayuda a convertir y gestionar los textos para poder ser tratados
     private String[] arrayPalabras;
@@ -25,7 +25,7 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
         this.arrayPalabras = textoGenerar.getArrayCadena();
         this.posicionFinal = textoGenerar.getTotalPalabrasBuscar();
         data = GlobalData.getInstance();
-        //lista = ListaPalabrasEncontradas.getInstance();
+        lista = ListaPalabrasEncontradas.getInstance();
     }
 
     public GlobalData getData() {

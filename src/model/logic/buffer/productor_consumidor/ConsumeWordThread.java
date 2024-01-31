@@ -63,8 +63,7 @@ public class ConsumeWordThread implements Runnable {
                 listaPalabras.addPalabraDesencriptada(palabraDesencriptada);
                 
                 //Se envian los datos a través de un observer:
-                String salida = "Generada: \"" + palabraGenerada + "\" Fueron necesarios: " + globalData.getNumeroPalabraActualGenerada() + " intentos\n";
-                notifyObservers(salida);
+                notifyObservers(palabraDesencriptada.toString()+ "\n");
 
                 //se aumenta la posicion
                 globalData.setPosicionActual(globalData.getPosicionActual() + 1);

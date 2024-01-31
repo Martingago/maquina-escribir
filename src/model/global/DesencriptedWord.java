@@ -1,8 +1,10 @@
 package model.global;
 
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DesencriptedWord {
+public class DesencriptedWord implements Serializable {
     
     private int posicionPalabra;
     private String palabraEncontrada;
@@ -53,13 +55,18 @@ public class DesencriptedWord {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("DesencriptedWord{");
-        sb.append("posicionPalabra=").append(posicionPalabra);
-        sb.append(", palabraEncontrada=").append(palabraEncontrada);
-        sb.append(", intentosPalabra=").append(intentosPalabra);
-        sb.append(", fechaEncontrada=").append(fechaEncontrada);
-        sb.append('}');
+        sb.append("[").append(posicionPalabra);
+        sb.append("] Generada: \"").append(palabraEncontrada);
+        sb.append("\" a las: ").append(formatoFecha(fechaEncontrada));
+        sb.append(". Necesarios").append(intentosPalabra);
+        sb.append(" intentos");
         return sb.toString();
     }
+    
+    
+    public String formatoFecha(Date fecha){
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    return formato.format(fecha);
+}
 
 }
