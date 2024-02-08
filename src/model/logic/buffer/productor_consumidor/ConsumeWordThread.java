@@ -57,10 +57,13 @@ public class ConsumeWordThread implements Runnable {
                 
                 //Se crea un objeto de DesencriptedWord
                 palabraDesencriptada = new DesencriptedWord(globalData.getPosicionActual(),
-                        palabraGenerada, globalData.getNumeroPalabraActualGenerada().get(),globalData.getUltimaPalabraEncontrada());
+                        palabraGenerada, globalData.getNumeroPalabraActualGenerada(),globalData.getUltimaPalabraEncontrada());
                 
                 //Se añade la palabra encontrada a la lista
                 listaPalabras.addPalabraDesencriptada(palabraDesencriptada);
+                
+                //Se resetea el valor de palabraActual a 0
+                globalData.resetNumeroPalabraActualGenerada();
                 
                 //Se envian los datos a través de un observer:
                 notifyObservers(palabraDesencriptada.toString()+ "\n");

@@ -1,5 +1,6 @@
 package model.global;
 
+import controller.hooks.FormatNumbers;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -58,7 +59,7 @@ public class DesencriptedWord implements Serializable {
         sb.append("[").append(posicionPalabra);
         sb.append("] Generada: \"").append(palabraEncontrada);
         sb.append("\" a las: ").append(formatoFecha(fechaEncontrada));
-        sb.append(". Necesarios").append(intentosPalabra);
+        sb.append(". Necesarios ").append(FormatNumbers.formatNumber(intentosPalabra));
         sb.append(" intentos");
         return sb.toString();
     }

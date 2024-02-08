@@ -1,10 +1,10 @@
 package controller.main;
 
-import controller.observer.SalidaPalabrasObserver;
 import javax.swing.JTextArea;
 import view.MainInterface;
+import controller.observer.SalidaPalabrasTextObserver;
 
-public class TextoSalidaPalabras implements SalidaPalabrasObserver {
+public class TextoSalidaPalabras implements SalidaPalabrasTextObserver {
 
     private static TextoSalidaPalabras instance = null;
     private JTextArea textoSalidaPalabras;

@@ -1,14 +1,14 @@
 package model.logic.buffer.productor_consumidor;
 
-import controller.observer.SalidaPalabrasObserver;
 import java.util.ArrayList;
 import java.util.List;
+import controller.observer.SalidaPalabrasTextObserver;
 
 public class MostrarPalabrasAleatoriasThread implements Runnable {
 
     private BufferProducirYConsumirPalabras buffer;
     private int palabrasSegundo;
-    private List<SalidaPalabrasObserver> observers = new ArrayList<>();
+    private List<SalidaPalabrasTextObserver> observers = new ArrayList<>();
 
     public MostrarPalabrasAleatoriasThread(BufferProducirYConsumirPalabras buffer, int palabrasSegundo) {
         this.buffer = buffer;
@@ -22,12 +22,12 @@ public class MostrarPalabrasAleatoriasThread implements Runnable {
 
     }
 
-    public void addObserver(SalidaPalabrasObserver observer) {
+    public void addObserver(SalidaPalabrasTextObserver observer) {
         observers.add(observer);
     }
 
     private void notifyObservers(String texto) {
-        for (SalidaPalabrasObserver observer : observers) {
+        for (SalidaPalabrasTextObserver observer : observers) {
             observer.appendPalabra(texto);
         }
     }

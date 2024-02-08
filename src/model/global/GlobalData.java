@@ -118,8 +118,12 @@ public class GlobalData implements Serializable {
         return numeroPalabraActualGenerada.incrementAndGet();
     }
 
-    public AtomicLong getNumeroPalabraActualGenerada() {
-        return numeroPalabraActualGenerada;
+    public void resetNumeroPalabraActualGenerada(){
+        this.numeroPalabraActualGenerada = new  AtomicLong(0);
+    }
+    
+    public long getNumeroPalabraActualGenerada() {
+        return numeroPalabraActualGenerada.get();
     }
 
     public void setNumeroPalabraActualGenerada(AtomicLong numeroPalabraActualGenerada) {

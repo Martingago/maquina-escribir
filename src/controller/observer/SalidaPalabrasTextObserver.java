@@ -1,6 +1,7 @@
 package controller.observer;
 
-public interface SalidaPalabrasObserver {
+public interface SalidaPalabrasTextObserver {
 
     public void appendPalabra(String cadena);
+   
 }

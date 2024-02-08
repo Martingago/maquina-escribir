@@ -22,7 +22,7 @@ public class MainController {
     //paneles de texto
     private TextoSalidaDatos outputText; //Panel de texto que muestra la salida de datos
     private TextoSalidaPalabras outputTextPalabras; //panel de texto sobre el que salen las palarbas generadas
-
+   
     //Instancia singleton del hilo de ejecución de eventos paralelos:
     private ThreadEventosParalelos evtParalelos;
 

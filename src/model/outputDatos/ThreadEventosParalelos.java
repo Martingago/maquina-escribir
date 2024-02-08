@@ -1,5 +1,6 @@
 package model.outputDatos;
 
+import controller.main.TotalPalabrasActual;
 import controller.main.TotalPalabrasGeneradas;
 import controller.main.TotalTimeEjecution;
 import java.util.concurrent.Executors;
@@ -22,12 +23,15 @@ public class ThreadEventosParalelos implements Runnable {
      */
     private static ThreadEventosParalelos instance = null;
     private ScheduledExecutorService executor;
-    private TotalPalabrasGeneradas outputTextTotalPalabras;
+    //Actualizacion de palabras
+    private TotalPalabrasGeneradas outputTextTotalPalabras; //panel de palabras totales
+    private TotalPalabrasActual outputTextPalabrasActuales; //panel de palabra actual
     private TotalTimeEjecution totalTimeEjecution;
     GlobalData datos; //instancia de globalDatos
 
     private ThreadEventosParalelos(MainInterface vista) {
         this.outputTextTotalPalabras = TotalPalabrasGeneradas.getInstance(vista);
+        this.outputTextPalabrasActuales = TotalPalabrasActual.getInstance(vista);
         this.totalTimeEjecution = totalTimeEjecution.getInstance(vista);
         this.datos = GlobalData.getInstance();
     }
@@ -43,7 +47,8 @@ public class ThreadEventosParalelos implements Runnable {
     @Override
     public void run() {
         if (datos.isWorking()) { //Se realiza una validacion adicional de que isWorking sea true
-            outputTextTotalPalabras.actualizarPalabras(); //actualizar el contador de palabras
+            outputTextTotalPalabras.actualizarOutputNumeroPalabras(); //actualizar el contador de palabras
+            outputTextPalabrasActuales.actualizarOutputNumeroPalabras(); //actualizar contador palabra actual
             totalTimeEjecution.updateAndPrintTimeEjecution(); //actualizar el tiempo de ejecución del programa
         } else {
             System.out.println("El sistema está pausado");

@@ -41,6 +41,10 @@ public class MainInterface extends javax.swing.JFrame {
         total_time_ejecution = new javax.swing.JTextField();
         pause_btn = new javax.swing.JButton();
         force_copy_data_btn = new javax.swing.JButton();
+        total_words_now = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -99,42 +103,76 @@ public class MainInterface extends javax.swing.JFrame {
 
         panel_principal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 400));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        start_btn.setBackground(new java.awt.Color(153, 255, 153));
+        start_btn.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         start_btn.setText("Iniciar");
+        start_btn.setToolTipText("Inicia el programa que generará carácteres aleatorios hasta completar la cadena seleccionada");
+        start_btn.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         jPanel1.add(start_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 120, 30));
 
+        total_words_generated.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        total_words_generated.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        total_words_generated.setBorder(null);
         total_words_generated.setFocusable(false);
         total_words_generated.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 total_words_generatedActionPerformed(evt);
             }
         });
-        jPanel1.add(total_words_generated, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 250, 30));
+        jPanel1.add(total_words_generated, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 250, 30));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jLabel4.setText("Tiempo Activo:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 250, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 100, 30));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Total palabras generadas:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 250, 30));
+        jLabel5.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel5.setText("Total de palabras generadas:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 250, 30));
 
+        total_time_ejecution.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        total_time_ejecution.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        total_time_ejecution.setBorder(null);
         total_time_ejecution.setFocusable(false);
         total_time_ejecution.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 total_time_ejecutionActionPerformed(evt);
             }
         });
-        jPanel1.add(total_time_ejecution, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 250, 30));
+        jPanel1.add(total_time_ejecution, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 150, 30));
 
+        pause_btn.setBackground(new java.awt.Color(255, 153, 153));
+        pause_btn.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         pause_btn.setText("Pausar");
         pause_btn.setEnabled(false);
         jPanel1.add(pause_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 120, 30));
 
+        force_copy_data_btn.setBackground(new java.awt.Color(153, 255, 255));
+        force_copy_data_btn.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         force_copy_data_btn.setText("Forzar copia seguridad");
         jPanel1.add(force_copy_data_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 250, 30));
+
+        total_words_now.setFont(new java.awt.Font("Noto Sans", 2, 12)); // NOI18N
+        total_words_now.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        total_words_now.setBorder(null);
+        total_words_now.setFocusable(false);
+        total_words_now.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                total_words_nowActionPerformed(evt);
+            }
+        });
+        jPanel1.add(total_words_now, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 250, 30));
+
+        jLabel6.setFont(new java.awt.Font("Noto Sans", 2, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel6.setText("Total en la palabra actual:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 240, 30));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 260, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,6 +201,10 @@ public class MainInterface extends javax.swing.JFrame {
     private void total_time_ejecutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_time_ejecutionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_total_time_ejecutionActionPerformed
+
+    private void total_words_nowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_words_nowActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_total_words_nowActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,11 +247,14 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JPanel panel_principal;
     private javax.swing.JPanel panel_registro;
@@ -219,5 +264,6 @@ public class MainInterface extends javax.swing.JFrame {
     public javax.swing.JTextArea texto_salida;
     public javax.swing.JTextField total_time_ejecution;
     public javax.swing.JTextField total_words_generated;
+    public javax.swing.JTextField total_words_now;
     // End of variables declaration//GEN-END:variables
 }

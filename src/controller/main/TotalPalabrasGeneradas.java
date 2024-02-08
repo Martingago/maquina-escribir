@@ -1,14 +1,12 @@
 package controller.main;
 
-import controller.observer.SalidaPalabrasTotalesObserver;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.util.Locale;
+import controller.hooks.FormatNumbers;
 import javax.swing.JTextField;
 import model.global.GlobalData;
 import view.MainInterface;
+import controller.observer.SalidaNumericaPalabrasObserver;
 
-public class TotalPalabrasGeneradas implements SalidaPalabrasTotalesObserver {
+public class TotalPalabrasGeneradas implements SalidaNumericaPalabrasObserver {
 
     private static TotalPalabrasGeneradas instance = null;
 
@@ -18,7 +16,7 @@ public class TotalPalabrasGeneradas implements SalidaPalabrasTotalesObserver {
     public TotalPalabrasGeneradas(MainInterface vista) {
         this.salida_total_palabras = vista.total_words_generated;
         datosGlobales = GlobalData.getInstance();
-        this.salida_total_palabras.setText( String.valueOf(datosGlobales.getPalabrasTotalesGeneradas()));
+        this.salida_total_palabras.setText(FormatNumbers.formatNumber(datosGlobales.getPalabrasTotalesGeneradas()));
     }
 
     public static TotalPalabrasGeneradas getInstance(MainInterface vista) {
@@ -32,13 +30,11 @@ public class TotalPalabrasGeneradas implements SalidaPalabrasTotalesObserver {
      * Actualiza el texto con el numero total de palabras generadas
      */
     @Override
-    public void actualizarPalabras() {
+    public void actualizarOutputNumeroPalabras() {
         //Actualizar el numero total de palabras:
         long totalPalabras = datosGlobales.getPalabrasTotalesGeneradas();
-        DecimalFormatSymbols simbolos = new DecimalFormatSymbols(Locale.getDefault());
-        simbolos.setGroupingSeparator('.');
-        DecimalFormat formateador = new DecimalFormat("###,###", simbolos);
-        salida_total_palabras.setText(formateador.format(totalPalabras));
+        String formattedNumber = FormatNumbers.formatNumber(totalPalabras);
+        salida_total_palabras.setText(formattedNumber);
     }
 
 }
