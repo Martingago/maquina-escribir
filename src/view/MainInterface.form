@@ -64,33 +64,6 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="60" width="530" height="330"/>
-                </Constraint>
-              </Constraints>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextArea" name="texto_salida">
-                  <Properties>
-                    <Property name="columns" type="int" value="20"/>
-                    <Property name="rows" type="int" value="5"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
-                    <Property name="focusable" type="boolean" value="false"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -100,10 +73,42 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="20" width="360" height="30"/>
+                  <AbsoluteConstraints x="60" y="50" width="360" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="60" y="80" width="460" height="300"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="tablaElementos">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="model&#xa;    " type="code"/>
+                    </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//Dise&#xf1;o de las columnas&#xa;tablaElementos.getColumnModel().getColumn(0).setPreferredWidth(60);&#xa;tablaElementos.getColumnModel().getColumn(1).setPreferredWidth(100);&#xa;tablaElementos.getColumnModel().getColumn(2).setPreferredWidth(197);&#xa;tablaElementos.getColumnModel().getColumn(3).setPreferredWidth(90);&#xa;tablaElementos.getColumnModel().getColumn(4).setPreferredWidth(80);&#xa;        // Cambiar la alineaci&#xf3;n de las columnas a la derecha&#xa;        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();&#xa;        rightRenderer.setHorizontalAlignment(SwingConstants.RIGHT);&#xa;        for (int i = 0; i &lt; tablaElementos.getColumnCount(); i++) {&#xa;            tablaElementos.getColumnModel().getColumn(i).setCellRenderer(rightRenderer);&#xa;        }"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tablaElementos.setFont(new java.awt.Font(&quot;Noto Sans&quot;, 0, 12)); // NOI18N&#xa;model.addColumn(&quot;ID&quot;);&#xa;    model.addColumn(&quot;Palabra&quot;);&#xa;    model.addColumn(&quot;Intentos&quot;);&#xa;    model.addColumn(&quot;Hora&quot;);&#xa;    model.addColumn(&quot;Fecha&quot;);"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">

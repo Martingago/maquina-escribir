@@ -16,7 +16,7 @@ public class TotalPalabrasActual implements SalidaNumericaPalabrasObserver {
     public TotalPalabrasActual(MainInterface vista) {
         this.salida_palabras_actual = vista.total_words_now;
         globalData = GlobalData.getInstance();
-        this.salida_palabras_actual.setText(FormatNumbers.formatNumber(globalData.getNumeroPalabraActualGenerada()));
+        this.salida_palabras_actual.setText(FormatNumbers.formatLongNumber(globalData.getNumeroPalabraActualGenerada()));
     }
 
     public static TotalPalabrasActual getInstance(MainInterface vista) {
@@ -30,7 +30,7 @@ public class TotalPalabrasActual implements SalidaNumericaPalabrasObserver {
     public void actualizarOutputNumeroPalabras() {
         //Se muestra en el textPanel el valor de GlobalData palabrasActuales
         long totalPalabras = globalData.getNumeroPalabraActualGenerada();
-        String formattedNumber = FormatNumbers.formatNumber(totalPalabras);
+        String formattedNumber = FormatNumbers.formatLongNumber(totalPalabras);
         salida_palabras_actual.setText(formattedNumber);
     }
 

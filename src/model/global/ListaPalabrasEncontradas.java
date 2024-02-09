@@ -11,28 +11,29 @@ import java.util.ArrayList;
 
 public class ListaPalabrasEncontradas implements Serializable {
 
-    private static ListaPalabrasEncontradas  instance = null;
+    private static ListaPalabrasEncontradas instance = null;
     private ArrayList<DesencriptedWord> listPalabrasDesencriptadas;
 
     //Constructor de la lista de palabras encontradas
     public ListaPalabrasEncontradas() {
         this.listPalabrasDesencriptadas = new ArrayList<>();
     }
-    
-    
-    public static ListaPalabrasEncontradas getInstance(){
-    if(instance == null){
-        instance = loadData();
-        
-    }
+
+    public static ListaPalabrasEncontradas getInstance() {
+        if (instance == null) {
+            instance = loadData();
+
+        }
         return instance;
     }
-    
-    
-        /**
-     * Función que comprueba si existe un fichero para guardar datos.
-     *   ==> Si el fichero existe se obtiene la información del mismo y se cargan sus datos en un objeto ListaPalabrasEncontradas que se devolverá.
-     *   ==> Si el fichero NO existe, se creará dicho fichero, y se le escribirá una instancia de ListaPalabrasEncontradas default.
+
+    /**
+     * Función que comprueba si existe un fichero para guardar datos. ==> Si el
+     * fichero existe se obtiene la información del mismo y se cargan sus datos
+     * en un objeto ListaPalabrasEncontradas que se devolverá. ==> Si el fichero
+     * NO existe, se creará dicho fichero, y se le escribirá una instancia de
+     * ListaPalabrasEncontradas default.
+     *
      * @return objeto ListaPalabrasEncontradas
      */
     private static ListaPalabrasEncontradas loadData() {
@@ -53,10 +54,10 @@ public class ListaPalabrasEncontradas implements Serializable {
         }
 
     }
-    
-    
-        /**
+
+    /**
      * Sobreescribe los datos de GlobalData en el fichero
+     *
      * @param lista
      */
     public static void guardarDatos(ListaPalabrasEncontradas lista) {
@@ -66,11 +67,6 @@ public class ListaPalabrasEncontradas implements Serializable {
             throw new RuntimeException("Error al guardar los datos", e);
         }
     }
-    
-    
-    
-    
-    
 
     //Añade una palabra a la lista de palabras encriptadas
     public void addPalabraDesencriptada(DesencriptedWord palabra) {
@@ -85,7 +81,5 @@ public class ListaPalabrasEncontradas implements Serializable {
     public String toString() {
         return "ListaPalabrasEncontradas{" + "listPalabrasDesencriptadas=" + listPalabrasDesencriptadas + '}';
     }
-    
-    
 
 }

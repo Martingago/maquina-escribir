@@ -16,7 +16,7 @@ public class TotalPalabrasGeneradas implements SalidaNumericaPalabrasObserver {
     public TotalPalabrasGeneradas(MainInterface vista) {
         this.salida_total_palabras = vista.total_words_generated;
         datosGlobales = GlobalData.getInstance();
-        this.salida_total_palabras.setText(FormatNumbers.formatNumber(datosGlobales.getPalabrasTotalesGeneradas()));
+        this.salida_total_palabras.setText(FormatNumbers.formatLongNumber(datosGlobales.getPalabrasTotalesGeneradas()));
     }
 
     public static TotalPalabrasGeneradas getInstance(MainInterface vista) {
@@ -33,7 +33,7 @@ public class TotalPalabrasGeneradas implements SalidaNumericaPalabrasObserver {
     public void actualizarOutputNumeroPalabras() {
         //Actualizar el numero total de palabras:
         long totalPalabras = datosGlobales.getPalabrasTotalesGeneradas();
-        String formattedNumber = FormatNumbers.formatNumber(totalPalabras);
+        String formattedNumber = FormatNumbers.formatLongNumber(totalPalabras);
         salida_total_palabras.setText(formattedNumber);
     }
 

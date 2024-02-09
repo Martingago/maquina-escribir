@@ -3,7 +3,7 @@ package controller;
 import controller.main.ButtonCopySeguridad;
 import controller.main.ButtonPause;
 import controller.main.ButtonStart;
-import controller.main.TextoSalidaDatos;
+import controller.main.TablaPalabras;
 import controller.main.TextoSalidaPalabras;
 import model.main.DirectorAlgoritmoBusquedaPalabras;
 import model.outputDatos.ThreadEventosParalelos;
@@ -19,8 +19,9 @@ public class MainController {
     private ButtonPause pauseButton; //botón que pausa el programa
     private ButtonCopySeguridad copySeguridadButton; //boton que hace una copia de seguridad del programa
 
-    //paneles de texto
-    private TextoSalidaDatos outputText; //Panel de texto que muestra la salida de datos
+    //Tabla de palabras
+    private TablaPalabras tablaPalabras;
+    
     private TextoSalidaPalabras outputTextPalabras; //panel de texto sobre el que salen las palarbas generadas
    
     //Instancia singleton del hilo de ejecución de eventos paralelos:
@@ -54,8 +55,10 @@ public class MainController {
         this.startButton = new ButtonStart(model,vista);
         this.pauseButton = new ButtonPause(model,vista);
         this.copySeguridadButton = new ButtonCopySeguridad(vista);
+        //Tabla palabras
+        this.tablaPalabras = TablaPalabras.getInstance(vista);
+        
         //texto salida
-        this.outputText= TextoSalidaDatos.getInstance(vista); //Se inicializa una instancia singleton de la salida de texto
         this.outputTextPalabras = TextoSalidaPalabras.getInstance(vista);
         
     }

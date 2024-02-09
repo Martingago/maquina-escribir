@@ -1,5 +1,8 @@
 package view;
 
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import model.global.GlobalData;
 
 public class MainInterface extends javax.swing.JFrame {
@@ -7,6 +10,7 @@ public class MainInterface extends javax.swing.JFrame {
     /**
      * Creates new form MainInterface
      */
+    public DefaultTableModel model = new DefaultTableModel();
 
     public MainInterface() {
         initComponents();
@@ -24,9 +28,9 @@ public class MainInterface extends javax.swing.JFrame {
 
         panel_principal = new javax.swing.JPanel();
         panel_registro = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        texto_salida = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaElementos = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -54,17 +58,36 @@ public class MainInterface extends javax.swing.JFrame {
 
         panel_registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        texto_salida.setColumns(20);
-        texto_salida.setRows(5);
-        texto_salida.setBorder(null);
-        texto_salida.setFocusable(false);
-        jScrollPane1.setViewportView(texto_salida);
-
-        panel_registro.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 530, 330));
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Registro palabras encontradas:");
-        panel_registro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 360, 30));
+        panel_registro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 360, 30));
+
+        jScrollPane4.setBorder(null);
+
+        tablaElementos.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
+        model.addColumn("ID");
+        model.addColumn("Palabra");
+        model.addColumn("Intentos");
+        model.addColumn("Hora");
+        model.addColumn("Fecha");
+        tablaElementos.setModel(model
+        );
+        tablaElementos.setEnabled(false);
+        //Diseño de las columnas
+        tablaElementos.getColumnModel().getColumn(0).setPreferredWidth(60);
+        tablaElementos.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tablaElementos.getColumnModel().getColumn(2).setPreferredWidth(197);
+        tablaElementos.getColumnModel().getColumn(3).setPreferredWidth(90);
+        tablaElementos.getColumnModel().getColumn(4).setPreferredWidth(80);
+        // Cambiar la alineación de las columnas a la derecha
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        rightRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
+        for (int i = 0; i < tablaElementos.getColumnCount(); i++) {
+            tablaElementos.getColumnModel().getColumn(i).setCellRenderer(rightRenderer);
+        }
+        jScrollPane4.setViewportView(tablaElementos);
+
+        panel_registro.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 460, 300));
 
         panel_principal.add(panel_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 560, 400));
 
@@ -250,9 +273,9 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea2;
@@ -260,8 +283,8 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JPanel panel_registro;
     public javax.swing.JButton pause_btn;
     public javax.swing.JButton start_btn;
+    public javax.swing.JTable tablaElementos;
     public javax.swing.JTextArea texto_palabras;
-    public javax.swing.JTextArea texto_salida;
     public javax.swing.JTextField total_time_ejecution;
     public javax.swing.JTextField total_words_generated;
     public javax.swing.JTextField total_words_now;

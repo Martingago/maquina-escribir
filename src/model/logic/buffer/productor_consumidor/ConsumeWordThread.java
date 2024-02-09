@@ -1,7 +1,6 @@
 package model.logic.buffer.productor_consumidor;
 
-import controller.main.TextoSalidaDatos;
-import controller.observer.Observer;
+import controller.main.TablaPalabras;
 import java.util.*;
 import model.global.DesencriptedWord;
 import model.global.GlobalData;
@@ -10,7 +9,6 @@ import model.logic.buffer.productor_consumidor.functions.CompararPalabras;
 
 public class ConsumeWordThread implements Runnable {
 
-    private List<Observer> observers = new ArrayList<>(); //observadores para actualizar elementos de la interfaz
     private BufferProducirYConsumirPalabras buffer; //buffer sobre el que se consumen las palabras
     private CompararPalabras comprobar; //Clase ComprararPalabras que contiene la función que permite comprobar una palabra con la palabra objetivo
     private DesencriptedWord palabraDesencriptada;
@@ -29,22 +27,12 @@ public class ConsumeWordThread implements Runnable {
         
     }
 
-    public void addObserver(Observer observer) {
-        observers.add(observer);
-    }
-
-    private void notifyObservers(String texto) {
-        for (Observer observer : observers) {
-            observer.appendText(texto);
-        }
-    }
-
     @Override
     public void run() {
         GlobalData globalData = GlobalData.getInstance();
+        TablaPalabras tablaPalabras = TablaPalabras.getInstance();
         ListaPalabrasEncontradas listaPalabras = ListaPalabrasEncontradas.getInstance();
         
-        addObserver(TextoSalidaDatos.getInstance(null)); //referencia de la instancia de textoSalida
         while (!buffer.isFound()&& buffer.getDatosGlobales().isWorking()) {
             String palabraGenerada = buffer.consumirWord(); //palabra generada que se va a consumir
             boolean encontrada = comprobar.validarPalabra(palabraGenerada); //valida que la palabra sea igual a la palabra base
@@ -59,15 +47,13 @@ public class ConsumeWordThread implements Runnable {
                 palabraDesencriptada = new DesencriptedWord(globalData.getPosicionActual(),
                         palabraGenerada, globalData.getNumeroPalabraActualGenerada(),globalData.getUltimaPalabraEncontrada());
                 
-                //Se añade la palabra encontrada a la lista
+                //Se añade la palabra encontrada a la lista y la actualiza en la tabla
                 listaPalabras.addPalabraDesencriptada(palabraDesencriptada);
+                tablaPalabras.addPalabra(palabraDesencriptada);
                 
                 //Se resetea el valor de palabraActual a 0
                 globalData.resetNumeroPalabraActualGenerada();
                 
-                //Se envian los datos a través de un observer:
-                notifyObservers(palabraDesencriptada.toString()+ "\n");
-
                 //se aumenta la posicion
                 globalData.setPosicionActual(globalData.getPosicionActual() + 1);
                 
