@@ -1,5 +1,7 @@
 package model.global;
 
+import controller.hooks.DateFormat;
+import controller.main.texts.TextoSalidaConsola;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -13,7 +15,6 @@ public class ListaPalabrasEncontradas implements Serializable {
 
     private static ListaPalabrasEncontradas instance = null;
     private ArrayList<DesencriptedWord> listPalabrasDesencriptadas;
-
     //Constructor de la lista de palabras encontradas
     public ListaPalabrasEncontradas() {
         this.listPalabrasDesencriptadas = new ArrayList<>();
@@ -41,10 +42,13 @@ public class ListaPalabrasEncontradas implements Serializable {
         if (file.exists()) {
             //Si el fichero existe se cargan los datos desde el fichero
             System.out.println("Se ha encontrado un fichero de listado de palabras");
+            TextoSalidaConsola.getInstance().escribirTextoConsola("<font color='green'> Se ha encontrado un fichero de listado de palabras </font>");
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
                 return (ListaPalabrasEncontradas) ois.readObject();
             } catch (IOException | ClassNotFoundException e) {
+                TextoSalidaConsola.getInstance().escribirTextoConsola("<font color='red'> Error al cargar los datos: " + e + "</font>");
                 throw new RuntimeException("Error al cargar los datos", e);
+                
             }
         } else {
             ListaPalabrasEncontradas lista = new ListaPalabrasEncontradas();
@@ -63,8 +67,11 @@ public class ListaPalabrasEncontradas implements Serializable {
     public static void guardarDatos(ListaPalabrasEncontradas lista) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("list_palabras_datos.ser"))) {
             oos.writeObject(lista);
+            System.out.println("guardando datos de la palabra");
+            TextoSalidaConsola.getInstance().escribirTextoConsola("<font color='green'>Guardando datos de la palabra </font>");
         } catch (IOException e) {
-            throw new RuntimeException("Error al guardar los datos", e);
+            TextoSalidaConsola.getInstance().escribirTextoConsola("<font color='red'> Error al guardar los datos de la palabra encontrada: " + e + "</font>");
+            throw new RuntimeException("Error al guardar los datos de la palabra encontrada", e);
         }
     }
 

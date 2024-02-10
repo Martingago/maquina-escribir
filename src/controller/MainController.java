@@ -5,6 +5,7 @@ import controller.main.buttons.ButtonPause;
 import controller.main.buttons.ButtonStart;
 import controller.main.TablaPalabras;
 import controller.main.texts.TextoEvolucionPalabras;
+import controller.main.texts.TextoSalidaConsola;
 import controller.main.texts.TextoSalidaPalabras;
 import model.main.DirectorAlgoritmoBusquedaPalabras;
 import model.outputDatos.ThreadEventosParalelos;
@@ -22,7 +23,8 @@ public class MainController {
 
     //Tabla de palabras
     private TablaPalabras tablaPalabras;
-    
+
+    private TextoSalidaConsola textoSalidaConsola;
     private TextoSalidaPalabras outputTextPalabras; //panel de texto sobre el que salen las palarbas generadas
     private TextoEvolucionPalabras textoEvolucionPalabras;
     //Instancia singleton del hilo de ejecución de eventos paralelos:
@@ -31,10 +33,13 @@ public class MainController {
     private MainController() {
         // Constructor privado sin parámetros
     }
+
     /**
-     * Obtiene una instancia de MainController.
-     * Es necesario invocar antes a la funcion setModelAndView en algun punto del codigo para poder establecer valores dentro del controlador
-     * @return 
+     * Obtiene una instancia de MainController. Es necesario invocar antes a la
+     * funcion setModelAndView en algun punto del codigo para poder establecer
+     * valores dentro del controlador
+     *
+     * @return
      */
     public static synchronized MainController getInstance() {
         if (instance == null) {
@@ -42,10 +47,22 @@ public class MainController {
         }
         return instance;
     }
-    /**
+
+   
+    public void setView(MainInterface vista) {
+        //Tabla palabras
+        this.tablaPalabras = TablaPalabras.getInstance(vista);
+        //texto salida
+        this.outputTextPalabras = TextoSalidaPalabras.getInstance(vista);
+        this.textoEvolucionPalabras = TextoEvolucionPalabras.getInstance(vista);
+        this.textoSalidaConsola = TextoSalidaConsola.getInstance(vista);
+    }
+    
+     /**
      * Actualiza la informacion del controlleador con un modelo y una vista
+     *
      * @param model
-     * @param vista 
+     * @param vista
      */
     public void setModelAndView(DirectorAlgoritmoBusquedaPalabras model, MainInterface vista) {
         this.model = model;
@@ -53,16 +70,10 @@ public class MainController {
         //hilo paralelo de eventos secundarios
         evtParalelos = ThreadEventosParalelos.getInstance(vista); //se crea la instancia principal para los eventos paralelos
         //botones
-        this.startButton = new ButtonStart(model,vista);
-        this.pauseButton = new ButtonPause(model,vista);
+        this.startButton = new ButtonStart(model, vista);
+        this.pauseButton = new ButtonPause(model, vista);
         this.copySeguridadButton = new ButtonCopySeguridad(vista);
-        //Tabla palabras
-        this.tablaPalabras = TablaPalabras.getInstance(vista);
-        
-        //texto salida
-        this.outputTextPalabras = TextoSalidaPalabras.getInstance(vista);
-        this.textoEvolucionPalabras = TextoEvolucionPalabras.getInstance(vista);
-        
+
     }
 
     public void iniciar() {
@@ -77,6 +88,5 @@ public class MainController {
     public DirectorAlgoritmoBusquedaPalabras getModel() {
         return model;
     }
-    
-    
+
 }

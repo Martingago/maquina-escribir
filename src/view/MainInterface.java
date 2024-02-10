@@ -126,6 +126,9 @@ public class MainInterface extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(102, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        salida_mensajes_consola.setEditable(false);
+        salida_mensajes_consola.setContentType("text/html");
+        salida_mensajes_consola.setFocusable(false);
         jScrollPane5.setViewportView(salida_mensajes_consola);
 
         jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, 260));
@@ -339,7 +342,7 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JPanel panel_principal;
     private javax.swing.JPanel panel_registro;
     public javax.swing.JButton pause_btn;
-    private javax.swing.JTextPane salida_mensajes_consola;
+    public javax.swing.JTextPane salida_mensajes_consola;
     public javax.swing.JButton start_btn;
     public javax.swing.JTable tablaElementos;
     public javax.swing.JTextPane text_global_palabras;

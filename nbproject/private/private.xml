@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/TextoEvolucionPalabras.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/data/StringData.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/texts/TextoEvolucionPalabras.java</file>
             <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/view/MainInterface.java</file>
             <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/MainController.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/texts/TextoSalidaConsola.java</file>
         </group>
     </open-files>
 </project-private>

@@ -41,7 +41,6 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
     @Override
     public void run() {
         while (data.getPosicionActual() != posicionFinal && data.isWorking()) {
-            System.out.println(data.getPosicionActual());
             new ControladorBufferBusquedaPalabras(arrayPalabras[data.getPosicionActual()].toLowerCase()).iniciarBusquedaProcesoPalabra();
         }
     }
