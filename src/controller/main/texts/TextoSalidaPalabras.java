@@ -1,4 +1,4 @@
-package controller.main;
+package controller.main.texts;
 
 import javax.swing.JTextArea;
 import view.MainInterface;

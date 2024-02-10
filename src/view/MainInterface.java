@@ -28,10 +28,20 @@ public class MainInterface extends javax.swing.JFrame {
 
         panel_principal = new javax.swing.JPanel();
         panel_registro = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        PanelPestañas = new javax.swing.JTabbedPane();
+        Detalles = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaElementos = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        Globales = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        text_global_palabras = new javax.swing.JTextPane();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        salida_mensajes_consola = new javax.swing.JTextPane();
+        jLabel7 = new javax.swing.JLabel();
+        panel_log = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         texto_palabras = new javax.swing.JTextArea();
@@ -58,9 +68,10 @@ public class MainInterface extends javax.swing.JFrame {
 
         panel_registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Registro palabras encontradas:");
-        panel_registro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 360, 30));
+        PanelPestañas.setBackground(new java.awt.Color(0, 153, 153));
+
+        Detalles.setBackground(new java.awt.Color(153, 255, 255));
+        Detalles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane4.setBorder(null);
 
@@ -87,16 +98,54 @@ public class MainInterface extends javax.swing.JFrame {
         }
         jScrollPane4.setViewportView(tablaElementos);
 
-        panel_registro.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 460, 300));
+        Detalles.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, 260));
+
+        jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        jLabel1.setText("Detalle palabras encontradas:");
+        Detalles.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 310, 30));
+
+        PanelPestañas.addTab("Detalles", Detalles);
+
+        Globales.setBackground(new java.awt.Color(255, 255, 204));
+        Globales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        jLabel2.setText("Evolución global de las palabras:");
+        Globales.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 30));
+
+        text_global_palabras.setContentType("text/html");
+        text_global_palabras.setEditable(false);
+        text_global_palabras.setContentType("text/html");
+        text_global_palabras.setFocusable(false);
+        jScrollPane1.setViewportView(text_global_palabras);
+
+        Globales.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, 260));
+
+        PanelPestañas.addTab("General", Globales);
+
+        jPanel2.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane5.setViewportView(salida_mensajes_consola);
+
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, 260));
+
+        jLabel7.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        jLabel7.setText("Registro de mensajes de la consola:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 310, 30));
+
+        PanelPestañas.addTab("Consola", jPanel2);
+
+        panel_registro.add(PanelPestañas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 380));
 
         panel_principal.add(panel_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 560, 400));
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_log.setBackground(new java.awt.Color(204, 255, 204));
+        panel_log.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Log datos:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 140, 30));
+        panel_log.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 140, 30));
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -106,7 +155,7 @@ public class MainInterface extends javax.swing.JFrame {
         texto_palabras.setFocusable(false);
         jScrollPane2.setViewportView(texto_palabras);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 140, 270));
+        panel_log.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 140, 260));
 
         jScrollPane3.setBorder(null);
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -122,9 +171,9 @@ public class MainInterface extends javax.swing.JFrame {
         jTextArea2.setFocusable(false);
         jScrollPane3.setViewportView(jTextArea2);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 140, -1));
+        panel_log.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 140, -1));
 
-        panel_principal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 400));
+        panel_principal.add(panel_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 400));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
@@ -265,25 +314,35 @@ public class MainInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Detalles;
+    private javax.swing.JPanel Globales;
+    private javax.swing.JTabbedPane PanelPestañas;
     public javax.swing.JButton force_copy_data_btn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JPanel panel_log;
     private javax.swing.JPanel panel_principal;
     private javax.swing.JPanel panel_registro;
     public javax.swing.JButton pause_btn;
+    private javax.swing.JTextPane salida_mensajes_consola;
     public javax.swing.JButton start_btn;
     public javax.swing.JTable tablaElementos;
+    public javax.swing.JTextPane text_global_palabras;
     public javax.swing.JTextArea texto_palabras;
     public javax.swing.JTextField total_time_ejecution;
     public javax.swing.JTextField total_words_generated;

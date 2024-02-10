@@ -1,4 +1,4 @@
-package controller.main;
+package controller.main.buttons;
 
 import controller.hooks.ButtonsFunctions;
 import java.awt.event.ActionEvent;
@@ -8,30 +8,34 @@ import model.main.DirectorAlgoritmoBusquedaPalabras;
 import model.outputDatos.ThreadEventosParalelos;
 import view.MainInterface;
 
-public class ButtonPause implements ActionListener{
-    
+public class ButtonStart implements ActionListener {
+
     private DirectorAlgoritmoBusquedaPalabras model;
     private MainInterface vista;
     private GlobalData datos;
-    private ThreadEventosParalelos evtParalelos;
-    private ButtonsFunctions fButton;
-    
-    
-    public ButtonPause(DirectorAlgoritmoBusquedaPalabras model, MainInterface vista){
+    ThreadEventosParalelos evtParalelos;
+    ButtonsFunctions fButton;
+
+    public ButtonStart(DirectorAlgoritmoBusquedaPalabras model, MainInterface vista) {
         this.model = model;
         this.vista = vista;
-        this.vista.pause_btn.addActionListener(this);
+        this.vista.start_btn.addActionListener(this);
         this.datos = GlobalData.getInstance();
         this.evtParalelos = ThreadEventosParalelos.getInstance(vista);
         this.fButton = new ButtonsFunctions();
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        evtParalelos.stop(); //Detiene el hilo secundario de manejar actualizaciones para el usuario
-        datos.setWorking(false); //establece la variable de working a false
+        //Si ya ha sido iniciado, no se puede volver a iniciar el programa
+        evtParalelos.start();
+        System.out.println("Se ha iniciado el hilo principal");
+        //Se inicia el hilo encargado de crear y comprobar palabras
+        Thread hilo = new Thread(model);
+        hilo.start();
+        //Se pone el elemento como working
+        datos.setWorking(true);
         fButton.handleButtonEnabled();
     }
-    
-    
 }

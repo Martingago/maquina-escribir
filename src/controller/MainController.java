@@ -1,10 +1,11 @@
 package controller;
 
-import controller.main.ButtonCopySeguridad;
-import controller.main.ButtonPause;
-import controller.main.ButtonStart;
+import controller.main.buttons.ButtonCopySeguridad;
+import controller.main.buttons.ButtonPause;
+import controller.main.buttons.ButtonStart;
 import controller.main.TablaPalabras;
-import controller.main.TextoSalidaPalabras;
+import controller.main.texts.TextoEvolucionPalabras;
+import controller.main.texts.TextoSalidaPalabras;
 import model.main.DirectorAlgoritmoBusquedaPalabras;
 import model.outputDatos.ThreadEventosParalelos;
 import view.MainInterface;
@@ -23,7 +24,7 @@ public class MainController {
     private TablaPalabras tablaPalabras;
     
     private TextoSalidaPalabras outputTextPalabras; //panel de texto sobre el que salen las palarbas generadas
-   
+    private TextoEvolucionPalabras textoEvolucionPalabras;
     //Instancia singleton del hilo de ejecución de eventos paralelos:
     private ThreadEventosParalelos evtParalelos;
 
@@ -60,6 +61,7 @@ public class MainController {
         
         //texto salida
         this.outputTextPalabras = TextoSalidaPalabras.getInstance(vista);
+        this.textoEvolucionPalabras = TextoEvolucionPalabras.getInstance(vista);
         
     }
 

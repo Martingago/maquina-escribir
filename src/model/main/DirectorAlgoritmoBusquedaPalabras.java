@@ -1,6 +1,7 @@
 package model.main;
 
-import data.StringData;
+import FICHERO_ANALIZAR.Fichero_analizar;
+import data.ManejadorCadenaFichero;
 import model.global.GlobalData;
 import model.global.ListaPalabrasEncontradas;
 import model.logic.buffer.ControladorBufferBusquedaPalabras;
@@ -11,19 +12,19 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
      * Clase principal del programa. Esta clase actua como directora para poder
      * ejecutar con éxito el algoritmo de generacion y comparación de palabras
      */
-    private final String cadena = "test lets gou meu deus esto es la monda si a ver cuanto tiempo tarda en encontrar todo"; //Cadena de texto que se ejecutará
-
-    StringData textoGenerar; //clase que ayuda a convertir y gestionar los textos para poder ser tratados
+    private Fichero_analizar fichero;
+    private ManejadorCadenaFichero manejadorFichero; //clase que ayuda a convertir y gestionar los textos para poder ser tratados
     private String[] arrayPalabras;
     private int posicionFinal;
-    GlobalData data;
-    ListaPalabrasEncontradas lista;
+    private GlobalData data;
+    private ListaPalabrasEncontradas lista;
 
     //Constructor que se genera automáticamente si no existe ningun fichero de guardado de datos previo
     public DirectorAlgoritmoBusquedaPalabras() {
-        this.textoGenerar = new StringData(cadena); //Conversion del texto a array
-        this.arrayPalabras = textoGenerar.getArrayCadena();
-        this.posicionFinal = textoGenerar.getTotalPalabrasBuscar();
+        this.fichero = new Fichero_analizar();
+        this.manejadorFichero = new ManejadorCadenaFichero(this.fichero.getDoc()); //Se obtiene la cadena del fichero que se quiere analizar
+        this.arrayPalabras = manejadorFichero.getArrayCadena();
+        this.posicionFinal = manejadorFichero.getTotalPalabrasBuscar();
         data = GlobalData.getInstance();
         lista = ListaPalabrasEncontradas.getInstance();
     }

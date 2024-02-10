@@ -1,6 +1,7 @@
 package model.logic.buffer.productor_consumidor;
 
 import controller.main.TablaPalabras;
+import controller.main.texts.TextoEvolucionPalabras;
 import java.util.*;
 import model.global.DesencriptedWord;
 import model.global.GlobalData;
@@ -30,6 +31,7 @@ public class ConsumeWordThread implements Runnable {
     @Override
     public void run() {
         GlobalData globalData = GlobalData.getInstance();
+        TextoEvolucionPalabras evolucion = TextoEvolucionPalabras.getInstance();
         TablaPalabras tablaPalabras = TablaPalabras.getInstance();
         ListaPalabrasEncontradas listaPalabras = ListaPalabrasEncontradas.getInstance();
         
@@ -60,6 +62,9 @@ public class ConsumeWordThread implements Runnable {
                 //Se hace un guardado automático cada vez que se encuentra una palabra
                 GlobalData.guardarDatos(globalData);
                 ListaPalabrasEncontradas.guardarDatos(listaPalabras);
+                
+                //Se actualiza el texto de los datos generales
+                evolucion.escribirTextoIniciar();
             }
         }
 

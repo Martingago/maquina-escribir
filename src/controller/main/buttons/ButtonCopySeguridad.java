@@ -1,4 +1,4 @@
-package controller.main;
+package controller.main.buttons;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

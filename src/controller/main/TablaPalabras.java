@@ -19,7 +19,7 @@ public class TablaPalabras implements SalidaPalabrasTablaObserver {
     }
 
     public static TablaPalabras getInstance(MainInterface vista) {
-        System.out.println("tabla");
+        
         if (instance == null) {
             instance = new TablaPalabras(vista);
             instance.cargarPalabrasEncontradas();
