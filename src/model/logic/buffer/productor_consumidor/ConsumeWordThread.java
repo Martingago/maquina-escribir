@@ -2,6 +2,7 @@ package model.logic.buffer.productor_consumidor;
 
 import controller.main.TablaPalabras;
 import controller.main.texts.TextoEvolucionPalabras;
+import controller.main.texts.UltimaPalabraEncontrada;
 import java.util.*;
 import model.global.DesencriptedWord;
 import model.global.GlobalData;
@@ -34,6 +35,7 @@ public class ConsumeWordThread implements Runnable {
         TextoEvolucionPalabras evolucion = TextoEvolucionPalabras.getInstance();
         TablaPalabras tablaPalabras = TablaPalabras.getInstance();
         ListaPalabrasEncontradas listaPalabras = ListaPalabrasEncontradas.getInstance();
+        UltimaPalabraEncontrada ultimaPalabra = UltimaPalabraEncontrada.getInstance();
         
         while (!buffer.isFound()&& buffer.getDatosGlobales().isWorking()) {
             String palabraGenerada = buffer.consumirWord(); //palabra generada que se va a consumir
@@ -65,6 +67,10 @@ public class ConsumeWordThread implements Runnable {
                 
                 //Se actualiza el texto de los datos generales
                 evolucion.escribirTextoIniciar();
+                
+                //Se escriben los datos de la ultima palabra encontrada
+                ultimaPalabra.appendPalabra(palabraDesencriptada.formatoTexto());
+ 
             }
         }
 

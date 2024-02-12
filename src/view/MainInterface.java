@@ -41,6 +41,8 @@ public class MainInterface extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         salida_mensajes_consola = new javax.swing.JTextPane();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        text_ultima_palabra_encontrada = new javax.swing.JTextPane();
         panel_log = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -98,7 +100,7 @@ public class MainInterface extends javax.swing.JFrame {
         }
         jScrollPane4.setViewportView(tablaElementos);
 
-        Detalles.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, 260));
+        Detalles.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, 270));
 
         jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         jLabel1.setText("Detalle palabras encontradas:");
@@ -119,7 +121,7 @@ public class MainInterface extends javax.swing.JFrame {
         text_global_palabras.setFocusable(false);
         jScrollPane1.setViewportView(text_global_palabras);
 
-        Globales.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, 260));
+        Globales.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, 270));
 
         PanelPestañas.addTab("General", Globales);
 
@@ -131,7 +133,7 @@ public class MainInterface extends javax.swing.JFrame {
         salida_mensajes_consola.setFocusable(false);
         jScrollPane5.setViewportView(salida_mensajes_consola);
 
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, 260));
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, 270));
 
         jLabel7.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         jLabel7.setText("Registro de mensajes de la consola:");
@@ -139,7 +141,11 @@ public class MainInterface extends javax.swing.JFrame {
 
         PanelPestañas.addTab("Consola", jPanel2);
 
-        panel_registro.add(PanelPestañas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 380));
+        panel_registro.add(PanelPestañas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 350));
+
+        jScrollPane6.setViewportView(text_ultima_palabra_encontrada);
+
+        panel_registro.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 540, 30));
 
         panel_principal.add(panel_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 560, 400));
 
@@ -158,7 +164,7 @@ public class MainInterface extends javax.swing.JFrame {
         texto_palabras.setFocusable(false);
         jScrollPane2.setViewportView(texto_palabras);
 
-        panel_log.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 140, 260));
+        panel_log.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 140, 270));
 
         jScrollPane3.setBorder(null);
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -174,7 +180,7 @@ public class MainInterface extends javax.swing.JFrame {
         jTextArea2.setFocusable(false);
         jScrollPane3.setViewportView(jTextArea2);
 
-        panel_log.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 140, -1));
+        panel_log.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 346, 140, 50));
 
         panel_principal.add(panel_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 400));
 
@@ -335,6 +341,7 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea2;
@@ -346,6 +353,7 @@ public class MainInterface extends javax.swing.JFrame {
     public javax.swing.JButton start_btn;
     public javax.swing.JTable tablaElementos;
     public javax.swing.JTextPane text_global_palabras;
+    public javax.swing.JTextPane text_ultima_palabra_encontrada;
     public javax.swing.JTextArea texto_palabras;
     public javax.swing.JTextField total_time_ejecution;
     public javax.swing.JTextField total_words_generated;

@@ -1,9 +1,12 @@
 package controller.main.texts;
 
 import controller.hooks.DateFormat;
+import java.awt.Color;
 import java.util.Date;
 import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import view.MainInterface;
 
@@ -27,11 +30,18 @@ public class TextoSalidaConsola {
         return instance;
     }
     
-    
-    public  void escribirTextoConsola(String texto){
+    /**
+     * Escribe en la consola del programa una fecha y hora +  texto de un determinado color y realiza un salto de liena para el siguiente mensaje.
+     * @param texto String a escribir
+     * @param color color del String
+     */
+    public  void escribirTextoConsola(String texto, Color color){
         StyledDocument doc = texto_salida_consola.getStyledDocument();
-        try{
-            doc.insertString(doc.getLength(), "<html>"+ DateFormat.formatDate(new Date()) + " - " + texto + "</html> \n", null);
+        //Se carga el color recibido
+        SimpleAttributeSet set = new SimpleAttributeSet();
+        StyleConstants.setForeground(set, color);
+         try{
+            doc.insertString(doc.getLength(),DateFormat.formatDate(new Date()) + " - " + texto +  "\n", set);
         }catch(BadLocationException e){
             System.out.println("Error");
         }

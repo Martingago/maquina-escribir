@@ -2,6 +2,7 @@ package model.global;
 
 import controller.hooks.DateFormat;
 import controller.main.texts.TextoSalidaConsola;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -42,11 +43,11 @@ public class ListaPalabrasEncontradas implements Serializable {
         if (file.exists()) {
             //Si el fichero existe se cargan los datos desde el fichero
             System.out.println("Se ha encontrado un fichero de listado de palabras");
-            TextoSalidaConsola.getInstance().escribirTextoConsola("<font color='green'> Se ha encontrado un fichero de listado de palabras </font>");
+            TextoSalidaConsola.getInstance().escribirTextoConsola("Se ha encontrado un fichero de listado de palabras", Color.GREEN);
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
                 return (ListaPalabrasEncontradas) ois.readObject();
             } catch (IOException | ClassNotFoundException e) {
-                TextoSalidaConsola.getInstance().escribirTextoConsola("<font color='red'> Error al cargar los datos: " + e + "</font>");
+                TextoSalidaConsola.getInstance().escribirTextoConsola("Error al cargar los datos: " + e, Color.RED);
                 throw new RuntimeException("Error al cargar los datos", e);
                 
             }
@@ -54,6 +55,7 @@ public class ListaPalabrasEncontradas implements Serializable {
             ListaPalabrasEncontradas lista = new ListaPalabrasEncontradas();
             // inicializar con la información por defecto
             guardarDatos(lista);
+            TextoSalidaConsola.getInstance().escribirTextoConsola("Generado fichero para guardar información de las palabras", Color.GREEN);
             return lista;
         }
 
@@ -67,11 +69,11 @@ public class ListaPalabrasEncontradas implements Serializable {
     public static void guardarDatos(ListaPalabrasEncontradas lista) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("list_palabras_datos.ser"))) {
             oos.writeObject(lista);
-            System.out.println("guardando datos de la palabra");
-            TextoSalidaConsola.getInstance().escribirTextoConsola("<font color='green'>Guardando datos de la palabra </font>");
+            System.out.println("Guardando datos en el fichero de palabras");
+            TextoSalidaConsola.getInstance().escribirTextoConsola("Guardando datos en el fichero de palabras", Color.BLACK);
         } catch (IOException e) {
-            TextoSalidaConsola.getInstance().escribirTextoConsola("<font color='red'> Error al guardar los datos de la palabra encontrada: " + e + "</font>");
-            throw new RuntimeException("Error al guardar los datos de la palabra encontrada", e);
+            TextoSalidaConsola.getInstance().escribirTextoConsola("Error al guardar los datos en el fichero de palabras: " + e, Color.RED);
+            throw new RuntimeException("Error al guardar los datos en el fichero de palabras", e);
         }
     }
 

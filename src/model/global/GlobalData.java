@@ -1,5 +1,7 @@
 package model.global;
 
+import controller.main.texts.TextoSalidaConsola;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -58,12 +60,13 @@ public class GlobalData implements Serializable {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
                 return (GlobalData) ois.readObject();
             } catch (IOException | ClassNotFoundException e) {
+                TextoSalidaConsola.getInstance().escribirTextoConsola("Error al cargar los datos: "+ e, Color.RED);
                 throw new RuntimeException("Error al cargar los datos", e);
             }
         } else {
             GlobalData globalData = new GlobalData();
             // inicializar con la información por defecto
-            guardarDatos(globalData);
+            //guardarDatos(globalData);
             return globalData;
         }
 
@@ -76,7 +79,10 @@ public class GlobalData implements Serializable {
     public static void guardarDatos(GlobalData globalData) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("copia_datos.ser"))) {
             oos.writeObject(globalData);
+             System.out.println("ACTUALIZANDO COPIA SEGURIDAD");
+        TextoSalidaConsola.getInstance().escribirTextoConsola("ACTUALIZANDO COPIA SEGURIDAD", Color.PINK);
         } catch (IOException e) {
+            TextoSalidaConsola.getInstance().escribirTextoConsola("Error al guardar los datos: " + e, Color.RED);
             throw new RuntimeException("Error al guardar los datos", e);
         }
     }

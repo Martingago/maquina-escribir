@@ -1,6 +1,8 @@
 package controller.main.buttons;
 
 import controller.hooks.ButtonsFunctions;
+import controller.main.texts.TextoSalidaConsola;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.global.GlobalData;
@@ -31,6 +33,7 @@ public class ButtonPause implements ActionListener{
         evtParalelos.stop(); //Detiene el hilo secundario de manejar actualizaciones para el usuario
         datos.setWorking(false); //establece la variable de working a false
         fButton.handleButtonEnabled();
+        TextoSalidaConsola.getInstance().escribirTextoConsola("PAUSADO EL PROGRAMA", Color.ORANGE);
     }
     
     

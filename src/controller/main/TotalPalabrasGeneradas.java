@@ -27,7 +27,7 @@ public class TotalPalabrasGeneradas implements SalidaNumericaPalabrasObserver {
     }
 
     /**
-     * Actualiza el texto con el numero total de palabras generadas
+     * Actualiza la interfaz de usuario con el panel de texto con el numero total de palabras generadas
      */
     @Override
     public void actualizarOutputNumeroPalabras() {

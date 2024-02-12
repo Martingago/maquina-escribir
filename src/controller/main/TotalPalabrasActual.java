@@ -26,6 +26,9 @@ public class TotalPalabrasActual implements SalidaNumericaPalabrasObserver {
         return instance;
     }
 
+    /**
+     * Función que actualiza la interfaz de usuario con las palabras actuales que estan siendo necesarias para desencriptar la palabra actual
+     */
     @Override
     public void actualizarOutputNumeroPalabras() {
         //Se muestra en el textPanel el valor de GlobalData palabrasActuales

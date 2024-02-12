@@ -1,6 +1,7 @@
 package model.logic.buffer.productor_consumidor;
 
-import java.util.concurrent.atomic.AtomicLong;
+import controller.main.texts.TextoSalidaConsola;
+import java.awt.Color;
 import model.global.GlobalData;
 
 public class BufferProducirYConsumirPalabras {
@@ -42,6 +43,7 @@ public class BufferProducirYConsumirPalabras {
             try {
                 wait();
             } catch (InterruptedException ex) {
+                TextoSalidaConsola.getInstance().escribirTextoConsola("Error de interrupción del sistema: " + ex, Color.RED);
                 System.out.println("Error interrupcion del sistema " + ex);
             }
         }
@@ -67,6 +69,7 @@ public class BufferProducirYConsumirPalabras {
             try {
                 wait();
             } catch (InterruptedException ex) {
+                TextoSalidaConsola.getInstance().escribirTextoConsola("Error de interrupción del sistema: " + ex, Color.RED);
                 System.out.println("Error interrupcion del sistema " + ex);
             }
         }

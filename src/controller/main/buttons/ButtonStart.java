@@ -1,6 +1,8 @@
 package controller.main.buttons;
 
 import controller.hooks.ButtonsFunctions;
+import controller.main.texts.TextoSalidaConsola;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.global.GlobalData;
@@ -30,7 +32,8 @@ public class ButtonStart implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //Si ya ha sido iniciado, no se puede volver a iniciar el programa
         evtParalelos.start();
-        System.out.println("Se ha iniciado el hilo principal");
+        System.out.println("INICIADO EL PROGRAMA PRINCIPAL");
+        TextoSalidaConsola.getInstance().escribirTextoConsola("INICIADO EL PROGRAMA PRINCIPAL", Color.BLUE);
         //Se inicia el hilo encargado de crear y comprobar palabras
         Thread hilo = new Thread(model);
         hilo.start();

@@ -1,5 +1,7 @@
 package model.global;
 
+import controller.hooks.DateFormat;
+import controller.hooks.FormatNumbers;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -51,6 +53,8 @@ public class DesencriptedWord implements Serializable {
         this.palabraEncontrada = palabraEncontrada;
     }
 
-
+    public String formatoTexto() {
+        return "Se encontró \"" + palabraEncontrada + "\" , tras " + FormatNumbers.formatLongNumber(intentosPalabra) + " intentos || " + DateFormat.formatDate(fechaEncontrada);
+    }
 
 }

@@ -3,6 +3,8 @@ package model.outputDatos;
 import controller.main.TotalPalabrasActual;
 import controller.main.TotalPalabrasGeneradas;
 import controller.main.TotalTimeEjecution;
+import controller.main.texts.TextoSalidaConsola;
+import java.awt.Color;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -50,7 +52,13 @@ public class ThreadEventosParalelos implements Runnable {
             outputTextTotalPalabras.actualizarOutputNumeroPalabras(); //actualizar el contador de palabras
             outputTextPalabrasActuales.actualizarOutputNumeroPalabras(); //actualizar contador palabra actual
             totalTimeEjecution.updateAndPrintTimeEjecution(); //actualizar el tiempo de ejecución del programa
+            
+            //hace que cada 2 minutos se realice una copia de seguridad:
+            if(datos.getSecsTotalActive() % 120 == 0){
+                GlobalData.guardarDatos(datos);
+            }
         } else {
+            TextoSalidaConsola.getInstance().escribirTextoConsola("El sistema está pausado", Color.ORANGE);
             System.out.println("El sistema está pausado");
         }
 
@@ -70,6 +78,7 @@ public class ThreadEventosParalelos implements Runnable {
             this.executor = Executors.newScheduledThreadPool(1);
             this.executor.scheduleAtFixedRate(this, 1, 1, TimeUnit.SECONDS);
         }else{
+            TextoSalidaConsola.getInstance().escribirTextoConsola("Atención, no se ha podido relanzar el hilo ya que el atributo GlobalData.isWorking debe estar en false. Prueba a reiniciar el sistema", Color.ORANGE);
             System.out.println("No se ha re-lanzado el hilo ya que el atributo de working debe estar en false");
         }
 
@@ -84,6 +93,7 @@ public class ThreadEventosParalelos implements Runnable {
         if(datos.isWorking()){
             this.executor.shutdown();
         }else{
+            TextoSalidaConsola.getInstance().escribirTextoConsola("ATENCIÓN, se ha pòdido pausar el hilo ya que no fue lanzado previamente", Color.ORANGE);
             System.out.println("No se ha podido pausar el hilo ya que no se ha ejecutado previamente");
         }
         

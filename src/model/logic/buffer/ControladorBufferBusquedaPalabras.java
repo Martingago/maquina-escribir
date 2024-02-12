@@ -1,5 +1,7 @@
 package model.logic.buffer;
 
+import controller.main.texts.TextoSalidaConsola;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import model.logic.buffer.productor_consumidor.BufferProducirYConsumirPalabras;
@@ -55,6 +57,7 @@ public class ControladorBufferBusquedaPalabras {
             try {
                 hilo.join();
             } catch (InterruptedException ex) {
+                TextoSalidaConsola.getInstance().escribirTextoConsola("Interrupción de datos del sistema: " + ex, Color.RED);
                 System.out.println("Interrupcion de datos del sistema");
             }
         }

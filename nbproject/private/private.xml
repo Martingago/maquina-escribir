@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/texts/TextoEvolucionPalabras.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/texts/UltimaPalabraEncontrada.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/main/Main_Maquina_escribir.java</file>
             <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/view/MainInterface.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/MainController.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/texts/TextoSalidaConsola.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/texts/TextoSalidaPalabras.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/model/global/GlobalData.java</file>
         </group>
     </open-files>
 </project-private>

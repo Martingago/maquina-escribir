@@ -7,6 +7,7 @@ import controller.main.TablaPalabras;
 import controller.main.texts.TextoEvolucionPalabras;
 import controller.main.texts.TextoSalidaConsola;
 import controller.main.texts.TextoSalidaPalabras;
+import controller.main.texts.UltimaPalabraEncontrada;
 import model.main.DirectorAlgoritmoBusquedaPalabras;
 import model.outputDatos.ThreadEventosParalelos;
 import view.MainInterface;
@@ -27,6 +28,7 @@ public class MainController {
     private TextoSalidaConsola textoSalidaConsola;
     private TextoSalidaPalabras outputTextPalabras; //panel de texto sobre el que salen las palarbas generadas
     private TextoEvolucionPalabras textoEvolucionPalabras;
+    private UltimaPalabraEncontrada textUltimaPalabra;
     //Instancia singleton del hilo de ejecución de eventos paralelos:
     private ThreadEventosParalelos evtParalelos;
 
@@ -56,6 +58,7 @@ public class MainController {
         this.outputTextPalabras = TextoSalidaPalabras.getInstance(vista);
         this.textoEvolucionPalabras = TextoEvolucionPalabras.getInstance(vista);
         this.textoSalidaConsola = TextoSalidaConsola.getInstance(vista);
+        this.textUltimaPalabra = UltimaPalabraEncontrada.getInstance(vista);
     }
     
      /**
