@@ -1,23 +1,25 @@
 package main;
 
-import global.GlobalData;
-import logic.main.GestionarCadenaPalabras;
+import controller.MainController;
+import controller.main.texts.TextoSalidaConsola;
+import model.main.DirectorAlgoritmoBusquedaPalabras;
+import view.MainInterface;
+
 
 public class Main_Maquina_escribir {
 
     public static void main(String[] args) {
-        /**
-         * Se genera un objeto GlobalData con todos los datos de inicialización
-         * del programa => Total de palabras generadas, numero palabras
-         * actuales, fecha inicio, fecha ultima palabra encontrada [...]
-         */
-        //GlobalData datosGlobales = new GlobalData();
-
-//        System.out.println("Se lanza el programa");
-//        GestionarCadenaPalabras gestion = new GestionarCadenaPalabras(datosGlobales);
-//
-//        gestion.manejarCadenaPalabras();
-//        System.out.println(datosGlobales.toString());
-//        System.out.println("Fin del programa");
+        //Se instancia la consola para obtener los primeros mensajes de inicializacion del programa
+        MainInterface vista = new MainInterface();
+        TextoSalidaConsola.getInstance(vista);
+        DirectorAlgoritmoBusquedaPalabras modelo = new DirectorAlgoritmoBusquedaPalabras();
+        
+        MainController controller = MainController.getInstance(); //instancia vacia de controller
+        
+        controller.setView(vista); //Se inician referencias 
+        
+        controller.setModelAndView(modelo, vista); //Se inician los datos principales de la instancia
+        controller.iniciar();
+        vista.setVisible(true);
     }
 }

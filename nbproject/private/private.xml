@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/global/GlobalData.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/logic/buffer/productor_consumidor/ConsumeWordThread.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/gui/main/MainInterface.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/logic/main/GestionarCadenaPalabras.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/logic/buffer/productor_consumidor/BufferProducirYConsumirPalabras.java</file>
-            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/logic/buffer/productor_consumidor/ProduceWordThread.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/texts/UltimaPalabraEncontrada.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/main/Main_Maquina_escribir.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/view/MainInterface.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/controller/main/texts/TextoSalidaPalabras.java</file>
+            <file>file:/F:/PROGRAMACION/PROYECTOS/JAVA/Maquina_escribir/src/model/global/GlobalData.java</file>
         </group>
     </open-files>
 </project-private>
