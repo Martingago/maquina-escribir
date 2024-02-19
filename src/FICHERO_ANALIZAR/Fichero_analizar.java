@@ -2,7 +2,7 @@ package FICHERO_ANALIZAR;
 
 public class Fichero_analizar {
 
-private String doc = "Este es el texto de prueba para poner en el panel y ver que evoluciona favorablemente en caso de que esto no funcione bien tendre que buscar en chatpgt mas informacion sobre como solucionar este problemon";
+private String doc = "Este es un texto de prueba que por el momento no se puede modificar por uno propio tampoco admite signos de puntuacion ni acentos quizas en algun momento intrdozuca la posibilidad de subir un fichero para que lo analice Por el momento esto es suficiente xd";
 
     public Fichero_analizar() {
     }
