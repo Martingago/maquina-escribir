@@ -9,6 +9,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import model.global.GlobalData;
+import model.logic.buffer.productor_consumidor.functions.GenerarPalabrasAleatorias;
 import view.MainInterface;
 
 public class ThreadEventosParalelos implements Runnable {
@@ -52,7 +53,6 @@ public class ThreadEventosParalelos implements Runnable {
             outputTextTotalPalabras.actualizarOutputNumeroPalabras(); //actualizar el contador de palabras
             outputTextPalabrasActuales.actualizarOutputNumeroPalabras(); //actualizar contador palabra actual
             totalTimeEjecution.updateAndPrintTimeEjecution(); //actualizar el tiempo de ejecución del programa
-            
             //hace que cada 2 minutos se realice una copia de seguridad:
             if(datos.getSecsTotalActive() % 120 == 0){
                 GlobalData.guardarDatos(datos);
@@ -98,5 +98,19 @@ public class ThreadEventosParalelos implements Runnable {
         }
         
     }
+    
+    /**
+     * Esto es una ratada, pero en lugar de obtener los datos desde el buffer, se generan 6 caracteres aleatorios
+     * para mostrar al usuario palabras aleatorias que se vayan generando
+     * Solución sencilla para el programa
+     */
+    public void emularPalabraGenerada(){
+        for (int i = 0; i < 10; i++) {
+            String palabra = new GenerarPalabrasAleatorias().generateWord(2);
+        }
+    
+    
+    }
+    
 
 }

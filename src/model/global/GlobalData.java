@@ -25,7 +25,7 @@ public class GlobalData implements Serializable {
 
     private int posicionActual; //posicion de la palabra en la que nos encontramos.
     private boolean working;
-
+    //private int tamPalabra;
     private Date ultimaPalabraEncontrada; //fecha de la ultima palabra encontrada
     private Date fechaInicio; //fecha en la que se inició el programa por primera vez
 

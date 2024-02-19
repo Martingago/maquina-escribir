@@ -28,19 +28,23 @@ public class MainInterface extends javax.swing.JFrame {
 
         panel_principal = new javax.swing.JPanel();
         panel_registro = new javax.swing.JPanel();
+        total_words_now = new javax.swing.JTextField();
         PanelPestañas = new javax.swing.JTabbedPane();
         Globales = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         text_global_palabras = new javax.swing.JTextPane();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        salida_mensajes_consola = new javax.swing.JTextPane();
-        jLabel7 = new javax.swing.JLabel();
         Detalles = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaElementos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        Consola = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        salida_mensajes_consola = new javax.swing.JTextPane();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        text_ultima_palabra_encontrada = new javax.swing.JTextPane();
         panel_log = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -48,16 +52,13 @@ public class MainInterface extends javax.swing.JFrame {
         total_time_ejecution = new javax.swing.JTextField();
         total_words_generated = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        text_ultima_palabra_encontrada = new javax.swing.JTextPane();
-        jPanel1 = new javax.swing.JPanel();
+        panel_menu_app = new javax.swing.JPanel();
         start_btn = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         pause_btn = new javax.swing.JButton();
         force_copy_data_btn = new javax.swing.JButton();
-        total_words_now = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -69,42 +70,41 @@ public class MainInterface extends javax.swing.JFrame {
         panel_registro.setBackground(new java.awt.Color(255, 255, 255));
         panel_registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelPestañas.setBackground(new java.awt.Color(153, 153, 153));
+        total_words_now.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        total_words_now.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        total_words_now.setBorder(null);
+        total_words_now.setFocusable(false);
+        total_words_now.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                total_words_nowActionPerformed(evt);
+            }
+        });
+        panel_registro.add(total_words_now, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 560, 160, 30));
 
-        Globales.setBackground(new java.awt.Color(255, 255, 204));
+        PanelPestañas.setBackground(new java.awt.Color(153, 153, 153));
+        PanelPestañas.setFont(new java.awt.Font("Noto Sans", 1, 16)); // NOI18N
+
+        Globales.setBackground(new java.awt.Color(255, 255, 255));
         Globales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        jLabel2.setText("Evolución global de las palabras:");
-        Globales.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 30));
+        jLabel2.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Evolución global de las palabras");
+        Globales.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 530, 30));
 
         text_global_palabras.setContentType("text/html");
         text_global_palabras.setEditable(false);
+        text_global_palabras.setBackground(new java.awt.Color(255, 255, 255));
         text_global_palabras.setContentType("text/html");
+        text_global_palabras.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         text_global_palabras.setFocusable(false);
         jScrollPane1.setViewportView(text_global_palabras);
 
-        Globales.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 530, 400));
+        Globales.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 530, 420));
 
         PanelPestañas.addTab("General", Globales);
 
-        jPanel2.setBackground(new java.awt.Color(102, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        salida_mensajes_consola.setEditable(false);
-        salida_mensajes_consola.setContentType("text/html");
-        salida_mensajes_consola.setFocusable(false);
-        jScrollPane5.setViewportView(salida_mensajes_consola);
-
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 530, 400));
-
-        jLabel7.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        jLabel7.setText("Registro de mensajes de la consola:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 310, 30));
-
-        PanelPestañas.addTab("Consola", jPanel2);
-
-        Detalles.setBackground(new java.awt.Color(51, 51, 51));
+        Detalles.setBackground(new java.awt.Color(245, 245, 245));
         Detalles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane4.setBorder(null);
@@ -115,7 +115,7 @@ public class MainInterface extends javax.swing.JFrame {
         model.addColumn("Intentos");
         model.addColumn("Hora");
         model.addColumn("Fecha");
-        tablaElementos.setBackground(new java.awt.Color(255, 255, 204));
+        tablaElementos.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         tablaElementos.setModel(model
         );
         tablaElementos.setEnabled(false);
@@ -133,22 +133,52 @@ public class MainInterface extends javax.swing.JFrame {
         }
         jScrollPane4.setViewportView(tablaElementos);
 
-        Detalles.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 530, 400));
+        Detalles.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 530, 420));
 
-        jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        jLabel1.setText("Detalle palabras encontradas:");
-        Detalles.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 310, 30));
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Detalle palabras encontradas");
+        Detalles.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 530, 30));
 
         PanelPestañas.addTab("Detalles", Detalles);
 
-        panel_registro.add(PanelPestañas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 480));
+        Consola.setBackground(new java.awt.Color(245, 245, 245));
+        Consola.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panel_principal.add(panel_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 550, 480));
+        salida_mensajes_consola.setEditable(false);
+        salida_mensajes_consola.setBackground(new java.awt.Color(255, 255, 255));
+        salida_mensajes_consola.setContentType("text/html");
+        salida_mensajes_consola.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
+        salida_mensajes_consola.setFocusable(false);
+        jScrollPane5.setViewportView(salida_mensajes_consola);
+
+        Consola.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 530, 420));
+
+        jLabel7.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Registro de mensajes de la consola");
+        Consola.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 530, 30));
+
+        PanelPestañas.addTab("Consola", Consola);
+
+        panel_registro.add(PanelPestañas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 510));
+
+        jLabel6.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel6.setText("Generaciones palabra actual:");
+        panel_registro.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, 230, 30));
+
+        jScrollPane6.setViewportView(text_ultima_palabra_encontrada);
+
+        panel_registro.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 530, 30));
+
+        panel_principal.add(panel_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 550, 610));
 
         panel_log.setBackground(new java.awt.Color(96, 96, 96));
         panel_log.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("Total elementos generados");
         panel_log.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 190, 30));
@@ -156,12 +186,13 @@ public class MainInterface extends javax.swing.JFrame {
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         texto_palabras.setColumns(20);
+        texto_palabras.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
         texto_palabras.setRows(5);
         texto_palabras.setBorder(null);
         texto_palabras.setFocusable(false);
         jScrollPane2.setViewportView(texto_palabras);
 
-        panel_log.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 190, 440));
+        panel_log.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 190, 430));
 
         total_time_ejecution.setBackground(new java.awt.Color(29, 29, 29));
         total_time_ejecution.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
@@ -190,75 +221,64 @@ public class MainInterface extends javax.swing.JFrame {
         panel_log.add(total_words_generated, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 190, 30));
 
         jLabel4.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Registro de palabras");
         panel_log.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 190, 30));
 
         panel_principal.add(panel_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 610));
 
-        jScrollPane6.setViewportView(text_ultima_palabra_encontrada);
-
-        panel_principal.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 530, 30));
-
         getContentPane().add(panel_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, -1));
 
-        jPanel1.setBackground(new java.awt.Color(29, 29, 29));
-        jPanel1.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_menu_app.setBackground(new java.awt.Color(29, 29, 29));
+        panel_menu_app.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
+        panel_menu_app.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        start_btn.setBackground(new java.awt.Color(153, 255, 153));
+        start_btn.setBackground(new java.awt.Color(0, 250, 174));
         start_btn.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         start_btn.setText("Iniciar");
         start_btn.setToolTipText("Inicia el programa que generará carácteres aleatorios hasta completar la cadena seleccionada");
-        start_btn.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jPanel1.add(start_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 190, 40));
+        start_btn.setBorder(null);
+        panel_menu_app.add(start_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 220, 40));
 
-        jLabel5.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Total de palabras generadas:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 250, 30));
-
-        pause_btn.setBackground(new java.awt.Color(255, 153, 153));
+        pause_btn.setBackground(new java.awt.Color(204, 204, 204));
         pause_btn.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         pause_btn.setText("Pausar");
+        pause_btn.setBorder(null);
         pause_btn.setEnabled(false);
-        jPanel1.add(pause_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 190, 40));
+        panel_menu_app.add(pause_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 220, 40));
 
-        force_copy_data_btn.setBackground(new java.awt.Color(153, 255, 255));
+        force_copy_data_btn.setBackground(new java.awt.Color(59, 110, 158));
         force_copy_data_btn.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        force_copy_data_btn.setText("Forzar copia seguridad");
+        force_copy_data_btn.setText("Actualizar copia seguridad");
+        force_copy_data_btn.setBorder(null);
         force_copy_data_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 force_copy_data_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(force_copy_data_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, -1, 40));
+        panel_menu_app.add(force_copy_data_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 220, 40));
 
-        total_words_now.setFont(new java.awt.Font("Noto Sans", 2, 12)); // NOI18N
-        total_words_now.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        total_words_now.setBorder(null);
-        total_words_now.setFocusable(false);
-        total_words_now.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                total_words_nowActionPerformed(evt);
-            }
-        });
-        jPanel1.add(total_words_now, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 250, 30));
+        jLabel5.setFont(new java.awt.Font("Noto Sans", 1, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Paradoja de los monos");
+        panel_menu_app.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 260, -1));
 
-        jLabel6.setFont(new java.awt.Font("Noto Sans", 2, 14)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Total en la palabra actual:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 240, 30));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 260, 10));
+        jLabel8.setFont(new java.awt.Font("Noto Sans", 1, 20)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Infinitos.");
+        panel_menu_app.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 230, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 320, 610));
+        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/paradoja-monos-infinitos-reescalado.png"))); // NOI18N
+        img.setText("jLabel9");
+        panel_menu_app.add(img, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 220, 230));
+
+        getContentPane().add(panel_menu_app, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 320, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void total_words_nowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_words_nowActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_total_words_nowActionPerformed
 
     private void force_copy_data_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_force_copy_data_btnActionPerformed
         // TODO add your handling code here:
@@ -271,6 +291,10 @@ public class MainInterface extends javax.swing.JFrame {
     private void total_words_generatedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_words_generatedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_total_words_generatedActionPerformed
+
+    private void total_words_nowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_words_nowActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_total_words_nowActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,10 +332,12 @@ public class MainInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Consola;
     private javax.swing.JPanel Detalles;
     private javax.swing.JPanel Globales;
     private javax.swing.JTabbedPane PanelPestañas;
     public javax.swing.JButton force_copy_data_btn;
+    private javax.swing.JLabel img;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -319,15 +345,14 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel panel_log;
+    private javax.swing.JPanel panel_menu_app;
     private javax.swing.JPanel panel_principal;
     private javax.swing.JPanel panel_registro;
     public javax.swing.JButton pause_btn;
