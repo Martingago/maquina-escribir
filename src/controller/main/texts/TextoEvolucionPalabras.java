@@ -45,7 +45,7 @@ public class TextoEvolucionPalabras {
         int posicion = globalData.getPosicionActual();
         StringBuilder textoFormateado = new StringBuilder();
         //Se abren las cabeceras
-        textoFormateado.append("<html> <body>");
+        textoFormateado.append("<html> <body style='font-family:Noto Sans'>");
         //BLOQUE DE TEXTO EN NEGRITA
         if(posicion>0) textoFormateado.append("<font size='5'>");
         //bucle for para antes de la posicion

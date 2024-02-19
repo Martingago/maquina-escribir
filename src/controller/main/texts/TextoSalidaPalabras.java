@@ -19,6 +19,23 @@ public class TextoSalidaPalabras implements SalidaPalabrasTextObserver {
         }
         return instance;
     }
+    
+    public static TextoSalidaPalabras getInstance(){
+        return instance;
+    }
+    
+    
+    public String getText(){
+        return textoSalidaPalabras.getText();
+    }
+    
+    public void setText(String text){
+        textoSalidaPalabras.setText(text);
+    }
+    
+    public void insertPalabra(String cadena){
+        textoSalidaPalabras.insert(cadena, 0);
+    }
 
     @Override
     public void appendPalabra(String cadena) {

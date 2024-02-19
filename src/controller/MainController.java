@@ -8,6 +8,7 @@ import controller.main.texts.TextoEvolucionPalabras;
 import controller.main.texts.TextoSalidaConsola;
 import controller.main.texts.TextoSalidaPalabras;
 import controller.main.texts.UltimaPalabraEncontrada;
+import javax.swing.ImageIcon;
 import model.main.DirectorAlgoritmoBusquedaPalabras;
 import model.outputDatos.ThreadEventosParalelos;
 import view.MainInterface;
@@ -80,8 +81,11 @@ public class MainController {
     }
 
     public void iniciar() {
+        ImageIcon icon = new ImageIcon("src/img/paradoja-monos-infinitos-reescalado.png");
+        vista.setIconImage(icon.getImage());
         vista.setTitle("Paradoja de los Monos y la máquina de escribir");
         model.getData().setWorking(false); //Por defecto setWorking es siempre false y el usuario es quien debe iniciarlo
+        
     }
 
     public MainInterface getVista() {

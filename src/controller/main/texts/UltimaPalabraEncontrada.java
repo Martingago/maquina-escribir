@@ -30,4 +30,6 @@ public class UltimaPalabraEncontrada implements SalidaPalabrasTextObserver {
         textoSalidaUltimaPalabraEncontrada.setText(cadena);
     }
 
+  
+
 }

@@ -25,7 +25,7 @@ public class GlobalData implements Serializable {
 
     private int posicionActual; //posicion de la palabra en la que nos encontramos.
     private boolean working;
-    //private int tamPalabra;
+    private int tamPalabra;
     private Date ultimaPalabraEncontrada; //fecha de la ultima palabra encontrada
     private Date fechaInicio; //fecha en la que se inició el programa por primera vez
 
@@ -33,6 +33,7 @@ public class GlobalData implements Serializable {
         this.numeroPalabrasTotalesGeneradas = new AtomicLong(0);
         this.secsTotalActive = new AtomicLong(0);
         this.posicionActual = 0;
+        this.tamPalabra = 0;
         this.working = false;
         this.numeroPalabraActualGenerada = new AtomicLong(0);
         this.ultimaPalabraEncontrada = new Date(); //se establece fecha actual
@@ -151,6 +152,16 @@ public class GlobalData implements Serializable {
     public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
+
+    public int getTamPalabra() {
+        return tamPalabra;
+    }
+
+    public void setTamPalabra(int tamPalabra) {
+        this.tamPalabra = tamPalabra;
+    }
+    
+    
 
     @Override
     public String toString() {

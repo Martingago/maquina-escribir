@@ -41,7 +41,10 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
     @Override
     public void run() {
         while (data.getPosicionActual() != posicionFinal && data.isWorking()) {
-            new ControladorBufferBusquedaPalabras(arrayPalabras[data.getPosicionActual()].toLowerCase()).iniciarBusquedaProcesoPalabra();
+            //Obtengo la palabra a buscar y seteo su tamaño para gestionar el hilo paralelo que emula la generacion de palabras
+            String palabraBuscar = arrayPalabras[data.getPosicionActual()].toLowerCase();
+            data.setTamPalabra(palabraBuscar.length());
+            new ControladorBufferBusquedaPalabras(palabraBuscar).iniciarBusquedaProcesoPalabra();
         }
     }
 

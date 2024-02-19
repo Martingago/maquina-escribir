@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -185,9 +186,11 @@ public class MainInterface extends javax.swing.JFrame {
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        texto_palabras.setEditable(false);
         texto_palabras.setColumns(20);
-        texto_palabras.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
+        texto_palabras.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         texto_palabras.setRows(5);
+        texto_palabras.setAutoscrolls(false);
         texto_palabras.setBorder(null);
         texto_palabras.setFocusable(false);
         jScrollPane2.setViewportView(texto_palabras);
@@ -330,7 +333,7 @@ public class MainInterface extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Consola;
     private javax.swing.JPanel Detalles;
