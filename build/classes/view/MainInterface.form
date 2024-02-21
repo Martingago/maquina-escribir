@@ -682,7 +682,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Paradoja de los monos"/>
+            <Property name="text" type="java.lang.String" value="Teorema de los monos"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">

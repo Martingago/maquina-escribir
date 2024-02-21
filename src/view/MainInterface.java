@@ -364,7 +364,7 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Noto Sans", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Paradoja de los monos");
+        jLabel5.setText("Teorema de los monos");
 
         jLabel8.setFont(new java.awt.Font("Noto Sans", 1, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
