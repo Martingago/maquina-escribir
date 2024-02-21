@@ -63,13 +63,10 @@ public class MainInterface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel_principal.setBackground(new java.awt.Color(255, 255, 255));
-        panel_principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel_registro.setBackground(new java.awt.Color(255, 255, 255));
-        panel_registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         total_words_now.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         total_words_now.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -80,18 +77,15 @@ public class MainInterface extends javax.swing.JFrame {
                 total_words_nowActionPerformed(evt);
             }
         });
-        panel_registro.add(total_words_now, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 560, 160, 30));
 
         PanelPestañas.setBackground(new java.awt.Color(153, 153, 153));
         PanelPestañas.setFont(new java.awt.Font("Noto Sans", 1, 16)); // NOI18N
 
         Globales.setBackground(new java.awt.Color(255, 255, 255));
-        Globales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Evolución global de las palabras");
-        Globales.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 530, 30));
 
         text_global_palabras.setContentType("text/html");
         text_global_palabras.setEditable(false);
@@ -101,12 +95,29 @@ public class MainInterface extends javax.swing.JFrame {
         text_global_palabras.setFocusable(false);
         jScrollPane1.setViewportView(text_global_palabras);
 
-        Globales.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 530, 420));
+        javax.swing.GroupLayout GlobalesLayout = new javax.swing.GroupLayout(Globales);
+        Globales.setLayout(GlobalesLayout);
+        GlobalesLayout.setHorizontalGroup(
+            GlobalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GlobalesLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(GlobalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        GlobalesLayout.setVerticalGroup(
+            GlobalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GlobalesLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
 
         PanelPestañas.addTab("General", Globales);
 
-        Detalles.setBackground(new java.awt.Color(245, 245, 245));
-        Detalles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Detalles.setBackground(new java.awt.Color(255, 255, 255));
 
         jScrollPane4.setBorder(null);
 
@@ -134,17 +145,34 @@ public class MainInterface extends javax.swing.JFrame {
         }
         jScrollPane4.setViewportView(tablaElementos);
 
-        Detalles.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 530, 420));
-
         jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Detalle palabras encontradas");
-        Detalles.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 530, 30));
+
+        javax.swing.GroupLayout DetallesLayout = new javax.swing.GroupLayout(Detalles);
+        Detalles.setLayout(DetallesLayout);
+        DetallesLayout.setHorizontalGroup(
+            DetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DetallesLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(DetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
+        );
+        DetallesLayout.setVerticalGroup(
+            DetallesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DetallesLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
 
         PanelPestañas.addTab("Detalles", Detalles);
 
-        Consola.setBackground(new java.awt.Color(245, 245, 245));
-        Consola.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Consola.setBackground(new java.awt.Color(255, 255, 255));
 
         salida_mensajes_consola.setEditable(false);
         salida_mensajes_consola.setBackground(new java.awt.Color(255, 255, 255));
@@ -153,36 +181,75 @@ public class MainInterface extends javax.swing.JFrame {
         salida_mensajes_consola.setFocusable(false);
         jScrollPane5.setViewportView(salida_mensajes_consola);
 
-        Consola.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 530, 420));
-
         jLabel7.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Registro de mensajes de la consola");
-        Consola.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 530, 30));
+
+        javax.swing.GroupLayout ConsolaLayout = new javax.swing.GroupLayout(Consola);
+        Consola.setLayout(ConsolaLayout);
+        ConsolaLayout.setHorizontalGroup(
+            ConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsolaLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(ConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5))
+                .addGap(10, 10, 10))
+        );
+        ConsolaLayout.setVerticalGroup(
+            ConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsolaLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
 
         PanelPestañas.addTab("Consola", Consola);
-
-        panel_registro.add(PanelPestañas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 510));
 
         jLabel6.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Generaciones palabra actual:");
-        panel_registro.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, 230, 30));
 
         jScrollPane6.setViewportView(text_ultima_palabra_encontrada);
 
-        panel_registro.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 530, 30));
-
-        panel_principal.add(panel_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 550, 610));
+        javax.swing.GroupLayout panel_registroLayout = new javax.swing.GroupLayout(panel_registro);
+        panel_registro.setLayout(panel_registroLayout);
+        panel_registroLayout.setHorizontalGroup(
+            panel_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_registroLayout.createSequentialGroup()
+                .addGroup(panel_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_registroLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_registroLayout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(total_words_now, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(PanelPestañas)
+        );
+        panel_registroLayout.setVerticalGroup(
+            panel_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_registroLayout.createSequentialGroup()
+                .addComponent(PanelPestañas, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(panel_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(total_words_now, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         panel_log.setBackground(new java.awt.Color(96, 96, 96));
-        panel_log.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("Total elementos generados");
-        panel_log.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 190, 30));
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -195,8 +262,6 @@ public class MainInterface extends javax.swing.JFrame {
         texto_palabras.setFocusable(false);
         jScrollPane2.setViewportView(texto_palabras);
 
-        panel_log.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 190, 430));
-
         total_time_ejecution.setBackground(new java.awt.Color(29, 29, 29));
         total_time_ejecution.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         total_time_ejecution.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,7 +273,6 @@ public class MainInterface extends javax.swing.JFrame {
                 total_time_ejecutionActionPerformed(evt);
             }
         });
-        panel_log.add(total_time_ejecution, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 40));
 
         total_words_generated.setBackground(new java.awt.Color(96, 96, 96));
         total_words_generated.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
@@ -221,35 +285,71 @@ public class MainInterface extends javax.swing.JFrame {
                 total_words_generatedActionPerformed(evt);
             }
         });
-        panel_log.add(total_words_generated, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 190, 30));
 
         jLabel4.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Registro de palabras");
-        panel_log.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 190, 30));
 
-        panel_principal.add(panel_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 610));
+        javax.swing.GroupLayout panel_logLayout = new javax.swing.GroupLayout(panel_log);
+        panel_log.setLayout(panel_logLayout);
+        panel_logLayout.setHorizontalGroup(
+            panel_logLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(total_time_ejecution, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panel_logLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(panel_logLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(total_words_generated, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        panel_logLayout.setVerticalGroup(
+            panel_logLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_logLayout.createSequentialGroup()
+                .addComponent(total_time_ejecution, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(total_words_generated, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
 
-        getContentPane().add(panel_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, -1));
+        javax.swing.GroupLayout panel_principalLayout = new javax.swing.GroupLayout(panel_principal);
+        panel_principal.setLayout(panel_principalLayout);
+        panel_principalLayout.setHorizontalGroup(
+            panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_principalLayout.createSequentialGroup()
+                .addComponent(panel_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panel_registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        panel_principalLayout.setVerticalGroup(
+            panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_registro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panel_principalLayout.createSequentialGroup()
+                .addComponent(panel_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         panel_menu_app.setBackground(new java.awt.Color(29, 29, 29));
         panel_menu_app.setFont(new java.awt.Font("Noto Sans", 0, 12)); // NOI18N
-        panel_menu_app.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         start_btn.setBackground(new java.awt.Color(0, 250, 174));
         start_btn.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         start_btn.setText("Iniciar");
         start_btn.setToolTipText("Inicia el programa que generará carácteres aleatorios hasta completar la cadena seleccionada");
         start_btn.setBorder(null);
-        panel_menu_app.add(start_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 220, 40));
 
         pause_btn.setBackground(new java.awt.Color(204, 204, 204));
         pause_btn.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         pause_btn.setText("Pausar");
         pause_btn.setBorder(null);
         pause_btn.setEnabled(false);
-        panel_menu_app.add(pause_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 220, 40));
 
         force_copy_data_btn.setBackground(new java.awt.Color(59, 110, 158));
         force_copy_data_btn.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
@@ -260,25 +360,78 @@ public class MainInterface extends javax.swing.JFrame {
                 force_copy_data_btnActionPerformed(evt);
             }
         });
-        panel_menu_app.add(force_copy_data_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 220, 40));
 
         jLabel5.setFont(new java.awt.Font("Noto Sans", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Paradoja de los monos");
-        panel_menu_app.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 260, -1));
+        jLabel5.setText("Teorema de los monos");
 
         jLabel8.setFont(new java.awt.Font("Noto Sans", 1, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Infinitos.");
-        panel_menu_app.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 230, -1));
 
         img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/paradoja-monos-infinitos-reescalado.png"))); // NOI18N
         img.setText("jLabel9");
-        panel_menu_app.add(img, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 220, 230));
 
-        getContentPane().add(panel_menu_app, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 320, 610));
+        javax.swing.GroupLayout panel_menu_appLayout = new javax.swing.GroupLayout(panel_menu_app);
+        panel_menu_app.setLayout(panel_menu_appLayout);
+        panel_menu_appLayout.setHorizontalGroup(
+            panel_menu_appLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_menu_appLayout.createSequentialGroup()
+                .addGroup(panel_menu_appLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_menu_appLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_menu_appLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_menu_appLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_menu_appLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(start_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_menu_appLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(pause_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_menu_appLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(force_copy_data_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+        panel_menu_appLayout.setVerticalGroup(
+            panel_menu_appLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_menu_appLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel5)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel8)
+                .addGap(24, 24, 24)
+                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(start_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(pause_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(force_copy_data_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panel_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panel_menu_app, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_menu_app, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

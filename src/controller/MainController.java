@@ -83,7 +83,7 @@ public class MainController {
     public void iniciar() {
         ImageIcon icon = new ImageIcon("src/img/paradoja-monos-infinitos-reescalado.png");
         vista.setIconImage(icon.getImage());
-        vista.setTitle("Paradoja de los Monos y la máquina de escribir");
+        vista.setTitle("Teorema de los Monos y la máquina de escribir");
         model.getData().setWorking(false); //Por defecto setWorking es siempre false y el usuario es quien debe iniciarlo
         
     }

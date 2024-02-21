@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import model.logic.buffer.productor_consumidor.BufferProducirYConsumirPalabras;
 import model.logic.buffer.productor_consumidor.ConsumeWordThread;
-import model.logic.buffer.productor_consumidor.MostrarPalabrasAleatoriasThread;
 import model.logic.buffer.productor_consumidor.ProduceWordThread;
 
 public class ControladorBufferBusquedaPalabras {
@@ -61,10 +60,6 @@ public class ControladorBufferBusquedaPalabras {
                 System.out.println("Interrupcion de datos del sistema");
             }
         }
-        //Iniciar un hilo encargado de mostrar por pantalla palabras que se van generando
-        MostrarPalabrasAleatoriasThread mostrarPalabras = new MostrarPalabrasAleatoriasThread(buffer,10);
-        Thread hiloPalabras = new Thread(mostrarPalabras);
-        //hiloPalabras.start();
     }
 
 }

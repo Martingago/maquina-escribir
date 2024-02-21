@@ -18,6 +18,9 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
     private int posicionFinal;
     private GlobalData data;
     private ListaPalabrasEncontradas lista;
+    
+    private ControladorBufferBusquedaPalabras controladorPalabras;
+    private String palabraBuscar;
 
     //Constructor que se genera automáticamente si no existe ningun fichero de guardado de datos previo
     public DirectorAlgoritmoBusquedaPalabras() {
@@ -27,6 +30,7 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
         this.posicionFinal = manejadorFichero.getTotalPalabrasBuscar();
         data = GlobalData.getInstance();
         lista = ListaPalabrasEncontradas.getInstance();
+        palabraBuscar = null;
     }
 
     public GlobalData getData() {
@@ -42,9 +46,11 @@ public class DirectorAlgoritmoBusquedaPalabras implements Runnable {
     public void run() {
         while (data.getPosicionActual() != posicionFinal && data.isWorking()) {
             //Obtengo la palabra a buscar y seteo su tamaño para gestionar el hilo paralelo que emula la generacion de palabras
-            String palabraBuscar = arrayPalabras[data.getPosicionActual()].toLowerCase();
+            palabraBuscar = arrayPalabras[data.getPosicionActual()].toLowerCase();
             data.setTamPalabra(palabraBuscar.length());
-            new ControladorBufferBusquedaPalabras(palabraBuscar).iniciarBusquedaProcesoPalabra();
+            
+            controladorPalabras = new ControladorBufferBusquedaPalabras(palabraBuscar); //Crea un nuevo controlador con la palabra a buscar
+            controladorPalabras.iniciarBusquedaProcesoPalabra(); //Inicia la busqueda de una palabra.
         }
     }
 

@@ -125,7 +125,7 @@ public class ThreadEventosParalelos implements Runnable {
             try {
                 String palabra = new GenerarPalabrasAleatorias().generateWord(datos.getTamPalabra());
                 Thread.sleep(100);
-                if (contador < 21) {
+                if (contador < 22) {
                     outputPalabrasGeneradas.insertPalabra(palabra + (contador > 0 ? "\n" : ""));
                     contador++;
                 } 
