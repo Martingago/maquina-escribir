@@ -1,3 +1,6 @@
+# Idioma
+[ENG](README_eng.md)
+
 # Teorema de los Monos Infinitos
 
 "Dale a un mono una máquina de escribir y tiempo infinito, en algún momento escribirá una novela de shakespeare"
